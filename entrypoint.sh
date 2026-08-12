@@ -9,6 +9,9 @@ sed -i "s/:80>/:${PORT}>/" /etc/apache2/sites-available/000-default.conf
 mkdir -p database
 touch database/database.sqlite
 
+composer dump-autoload --optimize
+php artisan package:discover --ansi
+
 php artisan config:clear
 php artisan config:cache
 php artisan route:cache
