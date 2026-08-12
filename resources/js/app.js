@@ -1,63 +1,4 @@
-const modal = document.querySelector('#donationModal');
-const form = document.querySelector('#donationForm');
-const feedback = document.querySelector('#donationFeedback');
-const customAmountWrap = document.querySelector('#customAmountWrap');
-const customAmount = document.querySelector('#customAmount');
-const category = document.querySelector('#donationCategory');
 const mobileMenu = document.querySelector('[data-mobile-menu]');
-
-const openDonation = (selectedCategory = '') => {
-    if (!modal) return;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('overflow-hidden');
-    if (selectedCategory && category) category.value = selectedCategory;
-    document.querySelector('#amountOptions .amount-option')?.focus();
-};
-
-const closeDonation = () => {
-    if (!modal) return;
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('overflow-hidden');
-    form?.classList.remove('hidden');
-    feedback?.classList.add('hidden');
-};
-
-document.querySelectorAll('[data-open-donation]').forEach((button) => {
-    button.addEventListener('click', () => {
-        if (mobileMenu) mobileMenu.classList.add('hidden');
-        openDonation(button.dataset.category || '');
-    });
-});
-
-document.querySelectorAll('[data-close-donation]').forEach((button) => button.addEventListener('click', closeDonation));
-modal?.addEventListener('click', (event) => { if (event.target === modal) closeDonation(); });
-document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeDonation(); });
-
-document.querySelectorAll('.amount-option').forEach((button) => {
-    button.addEventListener('click', () => {
-        document.querySelectorAll('.amount-option').forEach((option) => option.classList.remove('is-selected'));
-        button.classList.add('is-selected');
-        const isCustom = button.dataset.amount === 'custom';
-        customAmountWrap?.classList.toggle('hidden', !isCustom);
-        if (isCustom) customAmount?.focus();
-    });
-});
-
-form?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const selectedAmount = document.querySelector('.amount-option.is-selected')?.dataset.amount;
-    if (!selectedAmount || (selectedAmount === 'custom' && !customAmount?.value)) {
-        document.querySelector('#amountOptions')?.classList.add('ring-2', 'ring-[var(--color-red)]', 'rounded-xl');
-        setTimeout(() => document.querySelector('#amountOptions')?.classList.remove('ring-2', 'ring-[var(--color-red)]', 'rounded-xl'), 900);
-        return;
-    }
-    form.classList.add('hidden');
-    feedback?.classList.remove('hidden');
-});
 
 document.querySelector('[data-toggle-menu]')?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
 mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
@@ -75,59 +16,97 @@ mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click
     const wordRight = hero.querySelector('[data-word-right]');
     const scrollHint = hero.querySelector('[data-scrollhint]');
     const heroContent = hero.querySelector('[data-hero-content]');
+    const decor1 = hero.querySelector('.pet-decor-1');
+    const decor2 = hero.querySelector('.pet-decor-2');
+    const decor3 = hero.querySelector('.pet-decor-3');
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    let targetProgress = 0;
     let progress = 0;
     let fullyExpanded = false;
     let touchStartY = 0;
     let rafId = null;
 
     const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+    const lerp = (a, b, t) => a + (b - a) * t;
 
     const getIsMobile = () => window.innerWidth < 768;
 
     const getMediaSizes = () => {
         const mobile = getIsMobile();
-        const baseW = 300;
-        const baseH = 400;
-        const maxW = mobile ? 95 : 95;
-        const maxH = mobile ? 82 : 82;
-        const addW = mobile ? 620 : 1400;
-        const addH = mobile ? 200 : 460;
+        const baseW = 260;
+        const baseH = 460;
+        const maxW = mobile ? 90 : 85;
+        const maxH = mobile ? 86 : 86;
+        const addW = mobile ? 300 : 600;
+        const addH = mobile ? 220 : 520;
         const vw = window.innerWidth;
         const vh = window.innerHeight;
-        const targetW = Math.min(baseW + progress * addW, vw * (maxW / 100));
-        const targetH = Math.min(baseH + progress * addH, vh * (maxH / 100));
+        const rawW = baseW + progress * addW;
+        const rawH = baseH + progress * addH;
+        const capW = vw * (maxW / 100);
+        const capH = vh * (maxH / 100);
+        let targetW = Math.min(rawW, capW);
+        let targetH = Math.min(rawH, capH);
+        const ratio = 9 / 16;
+        if (targetW / targetH > ratio) {
+            targetW = targetH * ratio;
+        } else {
+            targetH = targetW / ratio;
+        }
         return { w: targetW, h: targetH, vw, vh };
     };
 
     const render = () => {
         rafId = null;
+        progress = lerp(progress, targetProgress, 0.11);
+        if (Math.abs(targetProgress - progress) < 0.002) progress = targetProgress;
+
+        const eased = easeOutCubic(progress);
         const { w, h, vw } = getMediaSizes();
         if (mediaWrap) {
             mediaWrap.style.width = `${w}px`;
             mediaWrap.style.height = `${h}px`;
+            const rotation = (1 - eased) * -1.2;
+            mediaWrap.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+            const radius = 24 - eased * 8;
+            mediaWrap.querySelector('.scroll-hero-media').style.borderRadius = `${radius}px`;
         }
         if (bgImg) {
-            bgImg.parentElement.style.opacity = `${1 - progress}`;
+            bgImg.parentElement.style.opacity = `${1 - eased}`;
+            const scale = 1 + eased * 0.06;
+            bgImg.style.transform = `scale(${scale})`;
         }
         if (mediaOverlay) {
-            mediaOverlay.style.opacity = `${0.5 - progress * 0.35}`;
+            mediaOverlay.style.opacity = `${0.55 - eased * 0.4}`;
         }
         const mobile = getIsMobile();
-        const shiftVw = progress * (mobile ? 26 : 18);
-        if (wordLeft) wordLeft.style.transform = `translateX(calc(-1 * ${shiftVw}vw))`;
-        if (wordRight) wordRight.style.transform = `translateX(${shiftVw}vw)`;
-        if (copy) copy.style.opacity = `${clamp(1 - progress * 1.2, 0, 1)}`;
-        if (scrollHint) scrollHint.style.opacity = `${clamp(1 - progress * 1.6, 0, 1)}`;
+        const shiftVw = eased * (mobile ? 26 : 18);
+        if (wordLeft) wordLeft.style.transform = `translateX(calc(-1 * ${shiftVw}vw)) translateY(calc(-1 * ${eased * 2}vh))`;
+        if (wordRight) wordRight.style.transform = `translateX(${shiftVw}vw) translateY(calc(${eased * 2}vh))`;
+        if (copy) copy.style.opacity = `${clamp(1 - eased * 1.25, 0, 1)}`;
+        if (scrollHint) scrollHint.style.opacity = `${clamp(1 - eased * 1.8, 0, 1)}`;
+        if (scrollHint) scrollHint.style.transform = `translateX(-50%) translateY(${eased * 10}px)`;
 
-        if (progress >= 1 && !fullyExpanded) {
+        if (decor1) decor1.style.transform = `translate(${eased * -30}px, ${eased * -40}px) rotate(${-eased * 6}deg)`;
+        if (decor1) decor1.style.opacity = `${clamp(1 - eased * 0.9, 0, 1)}`;
+        if (decor2) decor2.style.transform = `translate(${eased * 30}px, ${eased * -28}px) rotate(${eased * 5}deg)`;
+        if (decor2) decor2.style.opacity = `${clamp(1 - eased * 0.85, 0, 1)}`;
+        if (decor3) decor3.style.transform = `translate(${eased * -18}px, ${eased * 35}px) rotate(${eased * 8}deg)`;
+        if (decor3) decor3.style.opacity = `${clamp(1 - eased * 0.95, 0, 1)}`;
+
+        if (eased >= 0.98 && !fullyExpanded) {
             fullyExpanded = true;
             heroContent?.classList.add('is-visible');
-        } else if (fullyExpanded && progress < 0.75) {
+        } else if (fullyExpanded && eased < 0.72) {
             fullyExpanded = false;
             heroContent?.classList.remove('is-visible');
+        }
+
+        if (Math.abs(targetProgress - progress) > 0.001) {
+            schedule();
         }
     };
 
@@ -137,6 +116,7 @@ mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click
     };
 
     if (reduced) {
+        targetProgress = 1;
         progress = 1;
         fullyExpanded = true;
         render();
@@ -149,15 +129,15 @@ mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click
             if (e.deltaY < 0 && window.scrollY <= 5) {
                 fullyExpanded = false;
                 heroContent?.classList.remove('is-visible');
-                progress = clamp(progress - 0.05, 0, 1);
+                targetProgress = clamp(targetProgress - 0.05, 0, 1);
                 schedule();
                 e.preventDefault();
             }
             return;
         }
         e.preventDefault();
-        const delta = e.deltaY * 0.0009;
-        progress = clamp(progress + delta, 0, 1);
+        const delta = e.deltaY * 0.001;
+        targetProgress = clamp(targetProgress + delta, 0, 1);
         schedule();
     };
 
@@ -174,15 +154,15 @@ mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click
             if (d < -20 && window.scrollY <= 5) {
                 fullyExpanded = false;
                 heroContent?.classList.remove('is-visible');
-                progress = clamp(progress - 0.05, 0, 1);
+                targetProgress = clamp(targetProgress - 0.05, 0, 1);
                 schedule();
                 e.preventDefault();
             }
             return;
         }
         e.preventDefault();
-        const factor = d < 0 ? 0.008 : 0.005;
-        progress = clamp(progress + d * factor, 0, 1);
+        const factor = d < 0 ? 0.009 : 0.006;
+        targetProgress = clamp(targetProgress + d * factor, 0, 1);
         touchStartY = y;
         schedule();
     };
