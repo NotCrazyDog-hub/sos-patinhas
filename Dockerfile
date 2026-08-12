@@ -1,44 +1,40 @@
-# syntax=docker/dockerfile:1
+FROM php:8.3-fpm-alpine
 
-# ---------- Stage 1: build de assets (Vite/Mix) ----------
-# Remova este stage se seu projeto não usa npm/frontend build
-FROM node:20-alpine AS frontend
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
+# Dependências do sistema
+RUN apk add --no-cache \
+    nginx \
+    supervisor \
+    curl \
+    libpng-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    git
 
-# ---------- Stage 2: aplicação PHP ----------
-FROM php:8.3-apache AS app
+# Extensões PHP comuns pro Laravel
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
-RUN apt-get update && apt-get install -y \
-        git curl zip unzip libpng-dev libonig-dev libxml2-dev libzip-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip \
-    && a2enmod rewrite \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
+# Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
 COPY . .
-# Remova a linha abaixo se não usa o stage 1
-COPY --from=frontend /app/public/build ./public/build
 
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts \
-    && sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf \
-    && sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
-    && { \
-        echo '<Directory /var/www/html/public>'; \
-        echo '    AllowOverride All'; \
-        echo '    Require all granted'; \
-        echo '</Directory>'; \
-    } >> /etc/apache2/apache2.conf \
-    && chown -R www-data:www-data storage bootstrap/cache
+RUN composer install --no-dev --optimize-autoloader
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Permissões
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-EXPOSE 80
-ENTRYPOINT ["/entrypoint.sh"]
+# Configs
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+COPY docker/supervisord.conf /etc/supervisord.conf
+
+# Entrypoint
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+EXPOSE 8080
+
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

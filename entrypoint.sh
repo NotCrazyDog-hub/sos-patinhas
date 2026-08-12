@@ -1,20 +1,22 @@
 #!/bin/sh
 set -e
 
-PORT="${PORT:-80}"
-sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf
-sed -i "s/:80>/:${PORT}>/" /etc/apache2/sites-available/000-default.conf
+echo "Iniciando aplicação Laravel..."
 
-# Garante que o sqlite existe, mesmo sem uso real
-mkdir -p database
-touch database/database.sqlite
+# Gera a APP_KEY se não existir (opcional, geralmente já vem via env do Render)
+if [ -z "$APP_KEY" ]; then
+    php artisan key:generate --force
+fi
 
-composer dump-autoload --optimize
-php artisan package:discover --ansi
-
-php artisan config:clear
+# Cacheia configs, rotas e views para produção
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-exec apache2-foreground
+# Ajusta permissões (garante que www-data pode escrever em storage/cache)
+chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+echo "Aplicação pronta. Subindo processos..."
+
+# Executa o comando principal do container (passado como CMD/args)
+exec "$@"
