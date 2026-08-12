@@ -175,59 +175,6 @@
         min-height: 100dvh;
     }
 
-    .scroll-hero-pet-decor {
-        position: absolute;
-        z-index: 11;
-        pointer-events: none;
-        will-change: transform, opacity;
-        transition: none;
-    }
-    .pet-decor-1 { top: 22%; left: 6%; transform: translate(0,0) rotate(0deg); }
-    .pet-decor-2 { top: 26%; right: 6%; transform: translate(0,0) rotate(0deg); }
-    .pet-decor-3 { bottom: 22%; left: 10%; transform: translate(0,0) rotate(0deg); }
-
-    @media (max-width: 767px) {
-        .pet-decor-1 { top: 14%; left: 4%; }
-        .pet-decor-2 { top: 17%; right: 4%; }
-        .pet-decor-3 { bottom: 18%; left: 6%; }
-    }
-
-    .decor-pill {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.5rem 0.95rem;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.92);
-        backdrop-filter: blur(6px);
-        color: var(--color-dark);
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    }
-    .decor-pill-soft {
-        background: var(--color-red);
-        color: #fff;
-    }
-    .decor-sticker {
-        display: inline-block;
-        padding: 0.6rem 1rem;
-        background: #fff;
-        color: var(--color-dark);
-        font-family: var(--font-serif);
-        font-weight: 800;
-        font-size: 14px;
-        border-radius: 14px;
-        transform: rotate(-4deg);
-        box-shadow: 0 14px 35px rgba(0,0,0,0.22);
-        border: 2px solid var(--color-red);
-    }
-
-    @media (max-width: 767px) {
-        .decor-pill { padding: 0.4rem 0.75rem; font-size: 10px; }
-        .decor-sticker { padding: 0.5rem 0.8rem; font-size: 12px; }
-    }
-
     .scroll-hero-media-wrap {
         position: absolute;
         top: 50%;
@@ -266,35 +213,6 @@
         background: rgba(0,0,0,0.35);
         transition: opacity 0.25s ease;
         pointer-events: none;
-    }
-
-    .scroll-hero-media-tag {
-        position: absolute;
-        left: 50%;
-        bottom: 1rem;
-        transform: translateX(-50%);
-        z-index: 7;
-        pointer-events: none;
-    }
-    .scroll-hero-media-tag {
-        padding: 0.45rem 0.9rem;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.92);
-        color: var(--color-dark);
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        backdrop-filter: blur(6px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-        white-space: nowrap;
-    }
-    @media (min-width: 640px) {
-        .scroll-hero-media-tag {
-            bottom: 1.25rem;
-            font-size: 11px;
-            padding: 0.5rem 1.1rem;
-        }
     }
 
     .scroll-hero-copy {
@@ -452,14 +370,18 @@
     .gi-d { grid-column: span 2; grid-row: span 1; }
     .gi-e { grid-column: span 2; grid-row: span 1; }
     .gi-f { grid-column: span 2; grid-row: span 1; }
+    .gi-g { grid-column: span 3; grid-row: span 1; }
+    .gi-h { grid-column: span 3; grid-row: span 1; }
 
     @media (min-width: 768px) {
         .gi-a { grid-column: span 3; grid-row: span 2; }
         .gi-b { grid-column: span 3; grid-row: span 1; }
         .gi-c { grid-column: span 2; grid-row: span 1; }
-        .gi-d { grid-column: span 1; grid-row: span 1; }
+        .gi-d { grid-column: span 1; grid-row: span 2; }
         .gi-e { grid-column: span 2; grid-row: span 1; }
         .gi-f { grid-column: span 3; grid-row: span 1; }
+        .gi-g { grid-column: span 2; grid-row: span 1; }
+        .gi-h { grid-column: span 1; grid-row: span 1; }
     }
 
     /* Photo feature row */
@@ -684,6 +606,167 @@
     .cta-final-overlay {
         background:
             linear-gradient(180deg, rgba(248,59,59,0.82) 0%, rgba(248,59,59,0.94) 60%, rgba(248,59,59,0.98) 100%);
+    }
+
+    /* Elementos reais de PET no decorrer do site (fora do hero) */
+
+    /* Como funciona — fila de avatares + legenda */
+    .pet-row-simple {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: -0.75rem;
+    }
+    .pet-row-simple img {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 999px;
+        object-fit: cover;
+        object-position: 50% 35%;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+        margin-right: -0.65rem;
+        flex-shrink: 0;
+    }
+    .pet-row-simple img:nth-child(1) { z-index: 6; position: relative; }
+    .pet-row-simple img:nth-child(2) { z-index: 5; position: relative; }
+    .pet-row-simple img:nth-child(3) { z-index: 4; position: relative; }
+    .pet-row-simple img:nth-child(4) { z-index: 3; position: relative; }
+    .pet-row-simple img:nth-child(5) { z-index: 2; position: relative; }
+    .pet-row-simple img:nth-child(6) { z-index: 1; position: relative; }
+
+    @media (min-width: 640px) {
+        .pet-row-simple img {
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-right: -0.85rem;
+        }
+    }
+
+    /* Categorias — banner longo de fotos recortadas */
+    .pet-banner {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.55rem;
+    }
+    .pet-banner img {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 30%;
+        border-radius: 1.1rem;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+        transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+        backface-visibility: hidden;
+    }
+    .pet-banner img:nth-child(5),
+    .pet-banner img:nth-child(6),
+    .pet-banner img:nth-child(7),
+    .pet-banner img:nth-child(8) {
+        display: none;
+    }
+    @media (min-width: 640px) {
+        .pet-banner {
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+            gap: 0.65rem;
+        }
+        .pet-banner img:nth-child(5),
+        .pet-banner img:nth-child(6),
+        .pet-banner img:nth-child(7),
+        .pet-banner img:nth-child(8) {
+            display: block;
+        }
+        .pet-banner img {
+            aspect-ratio: 1 / 1;
+            border-radius: 1.25rem;
+        }
+        .pet-banner img:nth-child(even) {
+            aspect-ratio: 1 / 1.2;
+            transform: translateY(8px);
+        }
+    }
+    .pet-banner:hover img { transform: translateY(-2px); }
+    .pet-banner:hover img:nth-child(even) { transform: translateY(6px); }
+
+    /* Transparência — grid apertado de 4 thumbs */
+    .pet-tight-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+    .pet-tight-grid img {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 30%;
+        border-radius: 0.9rem;
+        border: 1px solid rgba(255,255,255,0.08);
+        backface-visibility: hidden;
+    }
+    .pet-tight-grid img:nth-child(1),
+    .pet-tight-grid img:nth-child(3) { transform: translateY(4px); }
+    .pet-tight-grid img:nth-child(2),
+    .pet-tight-grid img:nth-child(4) { transform: translateY(-4px); }
+
+    /* Sobre — polaroid pequena extra */
+    .polaroid-sm {
+        position: relative;
+        width: 48%;
+        margin-left: auto;
+        margin-right: 0.5rem;
+        transform: rotate(4deg);
+        background: #fff;
+        padding: 0.5rem 0.5rem 1.6rem 0.5rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+    }
+    .polaroid-sm img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: 50% 30%;
+        border-radius: 0.125rem;
+        display: block;
+    }
+    @media (min-width: 768px) {
+        .polaroid-sm {
+            width: 42%;
+            margin-top: -2.5rem;
+            padding: 0.6rem 0.6rem 1.9rem 0.6rem;
+        }
+    }
+
+    /* Rodapé — tira longa de 10 fotos */
+    .footer-pet-strip {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.4rem;
+    }
+    .footer-pet-strip img {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 30%;
+        border-radius: 0.65rem;
+        opacity: 0.9;
+    }
+    .footer-pet-strip img:nth-child(6),
+    .footer-pet-strip img:nth-child(7),
+    .footer-pet-strip img:nth-child(8),
+    .footer-pet-strip img:nth-child(9),
+    .footer-pet-strip img:nth-child(10) { display: none; }
+
+    @media (min-width: 640px) {
+        .footer-pet-strip { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+        .footer-pet-strip img:nth-child(6),
+        .footer-pet-strip img:nth-child(7),
+        .footer-pet-strip img:nth-child(8),
+        .footer-pet-strip img:nth-child(9),
+        .footer-pet-strip img:nth-child(10) { display: block; }
+        .footer-pet-strip img:nth-child(odd)  { aspect-ratio: 1 / 1; transform: translateY(4px); }
+        .footer-pet-strip img:nth-child(even) { aspect-ratio: 1 / 1.15; transform: translateY(-4px); }
     }
 }
 

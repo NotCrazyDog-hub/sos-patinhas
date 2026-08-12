@@ -16,9 +16,6 @@ mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click
     const wordRight = hero.querySelector('[data-word-right]');
     const scrollHint = hero.querySelector('[data-scrollhint]');
     const heroContent = hero.querySelector('[data-hero-content]');
-    const decor1 = hero.querySelector('.pet-decor-1');
-    const decor2 = hero.querySelector('.pet-decor-2');
-    const decor3 = hero.querySelector('.pet-decor-3');
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -89,13 +86,6 @@ mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click
         if (copy) copy.style.opacity = `${clamp(1 - eased * 1.25, 0, 1)}`;
         if (scrollHint) scrollHint.style.opacity = `${clamp(1 - eased * 1.8, 0, 1)}`;
         if (scrollHint) scrollHint.style.transform = `translateX(-50%) translateY(${eased * 10}px)`;
-
-        if (decor1) decor1.style.transform = `translate(${eased * -30}px, ${eased * -40}px) rotate(${-eased * 6}deg)`;
-        if (decor1) decor1.style.opacity = `${clamp(1 - eased * 0.9, 0, 1)}`;
-        if (decor2) decor2.style.transform = `translate(${eased * 30}px, ${eased * -28}px) rotate(${eased * 5}deg)`;
-        if (decor2) decor2.style.opacity = `${clamp(1 - eased * 0.85, 0, 1)}`;
-        if (decor3) decor3.style.transform = `translate(${eased * -18}px, ${eased * 35}px) rotate(${eased * 8}deg)`;
-        if (decor3) decor3.style.opacity = `${clamp(1 - eased * 0.95, 0, 1)}`;
 
         if (eased >= 0.98 && !fullyExpanded) {
             fullyExpanded = true;

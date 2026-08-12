@@ -15,7 +15,7 @@
 
     @php
         // TODO: substituir pelo número real da ONG (formato internacional, só dígitos: 55 + DDD + número)
-        $whatsappNumber = '5588999999999';
+        $whatsappNumber = '558898304647';
 
         $whatsappMessages = [
             'geral'     => 'Olá! Vi o site do SOS Patinhas e quero ajudar.',
@@ -73,16 +73,6 @@
             </div>
 
             <div class="scroll-hero-inner">
-                <div class="scroll-hero-pet-decor pet-decor-1" aria-hidden="true">
-                    <span class="decor-pill">🐾 4 patas</span>
-                </div>
-                <div class="scroll-hero-pet-decor pet-decor-2" aria-hidden="true">
-                    <span class="decor-pill decor-pill-soft">❤️ adotados</span>
-                </div>
-                <div class="scroll-hero-pet-decor pet-decor-3" aria-hidden="true">
-                    <span class="decor-sticker">Ajuda real</span>
-                </div>
-
                 <div class="scroll-hero-media-wrap" data-hero-media-wrap>
                     <div class="scroll-hero-media">
                         <video
@@ -92,10 +82,6 @@
                         </video>
                     </div>
                     <div class="scroll-hero-media-overlay" data-hero-overlay></div>
-                    <div class="scroll-hero-media-tag">
-                        <span class="sm:hidden">Resgate + cuidado</span>
-                        <span class="hidden sm:inline">Resgate · cuidado · um novo lar</span>
-                    </div>
                 </div>
 
                 <div class="scroll-hero-copy" data-hero-copy>
@@ -179,6 +165,15 @@
                     <p class="mt-5 max-w-sm text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
                         Sem plataforma no meio, sem formulário de 5 campos. Você fala com quem realmente cuida dos animais.
                     </p>
+                    <div class="mt-8 pet-row-simple" aria-hidden="true">
+                        <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
+                        <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
+                        <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="">
+                        <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="">
+                        <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="">
+                        <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="">
+                    </div>
+                    <p class="mt-3 text-xs font-bold text-[var(--color-dark)]/70">6 patinhas atendidos esse mês.</p>
                 </div>
                 <div class="grid gap-4 sm:grid-cols-3">
                     <article class="step-card">
@@ -245,6 +240,14 @@
                         <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="Cachorro na grama ao entardecer">
                         <span class="gi-caption">Passeio diário · manhã ensolarada</span>
                     </a>
+                    <a class="gallery-item gi-g" href="#">
+                        <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="Voluntária segurando dois cachorros">
+                        <span class="gi-caption">Dia de visita ao abrigo</span>
+                    </a>
+                    <a class="gallery-item gi-h" href="#">
+                        <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="Gato recebendo carinho">
+                        <span class="gi-caption">Mia · 2 anos · adotada</span>
+                    </a>
                 </div>
 
                 <p class="mt-8 text-[10px] leading-relaxed text-[var(--color-dark)]/45 text-center">Fotos reais de animais atendidos pelo SOS Patinhas. Para adoção formal, entre em contato.</p>
@@ -259,6 +262,17 @@
                     <h2 class="section-title mt-4 max-w-xl">Escolha o item que vai chegar até um patinha.</h2>
                 </div>
                 <p class="max-w-xs text-sm leading-relaxed text-[var(--color-dark)]/65 sm:text-right">Clique em qualquer categoria — abre direto o WhatsApp com a mensagem pronta. É só enviar.</p>
+            </div>
+
+            <div class="mt-10 pet-banner" aria-hidden="true">
+                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="">
             </div>
 
             <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4 category-shelf">
@@ -400,6 +414,15 @@
                                 </div>
                             </article>
                         </div>
+
+                        <div class="mt-5 pt-5 border-t border-white/10">
+                            <div class="pet-tight-grid" aria-hidden="true">
+                                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
+                                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
+                                <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="">
+                                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -419,8 +442,13 @@
                             <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
                             <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
                             <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
+                            <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
+                            <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
                         </div>
                         <p class="text-xs font-bold leading-snug text-[var(--color-dark)]/75">Só alguns dos patinhas atendidos pelo SOS.</p>
+                    </div>
+                    <div class="mt-4 polaroid-sm" aria-hidden="true">
+                        <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="Filhote do SOS Patinhas">
                     </div>
                 </div>
                 <div class="order-1 lg:order-2">
@@ -476,6 +504,17 @@
                         Ver mais patinhas
                     </a>
                 </div>
+                <div class="mt-10 flex -space-x-2 md:-space-x-3" aria-hidden="true">
+                    <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                </div>
+                <p class="mt-3 text-xs font-semibold text-white/75">8 patinhas que já tiveram ajuda chegando.</p>
             </div>
         </section>
 
@@ -483,6 +522,18 @@
 
     <footer class="bg-[var(--color-dark)] text-white pt-16 pb-28 md:pb-16">
         <div class="container-wide">
+            <div class="mb-12 footer-pet-strip" aria-hidden="true">
+                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
+            </div>
             <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr] md:gap-16">
                 <div>
                     <a href="#inicio" class="flex items-center gap-3">
