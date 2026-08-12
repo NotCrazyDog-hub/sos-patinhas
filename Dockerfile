@@ -1,17 +1,22 @@
 FROM php:8.3-fpm-alpine
 
-# Dependências do sistema
+# Dependências do sistema (build-time)
 RUN apk add --no-cache \
     nginx \
     supervisor \
     curl \
     libpng-dev \
     libzip-dev \
+    oniguruma-dev \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    zlib-dev \
     zip \
     unzip \
     git
 
-# Extensões PHP comuns pro Laravel
+# Configura e instala extensões PHP
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
 # Composer
