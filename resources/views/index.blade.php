@@ -20,9 +20,9 @@
         $whatsappMessages = [
             'geral'     => 'Olá! Vi o site da 4 Patas Associação e quero ajudar.',
             'Ração'     => 'Olá! Quero ajudar com Ração para os patinhas.',
-            'Remédio'   => 'Olá! Quero ajudar com Remédio para os patinhas.',
-            'Castração' => 'Olá! Quero ajudar com Castração para os patinhas.',
-            'Geral'     => 'Olá! Quero ajudar onde for mais urgente para os patinhas.',
+            'Remédios'  => 'Olá! Quero ajudar com Remédios para os patinhas.',
+            'Cirurgias' => 'Olá! Quero ajudar com Cirurgias para os patinhas.',
+            'Ajuda em Dinheiro' => 'Olá! Quero ajudar com uma doação em Dinheiro.',
         ];
 
         $waLink = fn (string $key = 'geral') => 'https://wa.me/' . $whatsappNumber . '?text=' . urlencode($whatsappMessages[$key]);
@@ -278,59 +278,55 @@
             <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4 category-shelf">
                 <a href="{{ $waLink('Ração') }}" target="_blank" rel="noopener" class="shelf-card group">
                     <div class="shelf-photo">
-                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=saco%20grande%20de%20racao%20para%20cachorros%20e%20gatos%20marrom%20aberto%20mostrando%20os%20pellets%20tigela%20ao%20lado%20fundo%20branco%20luz%20natural&image_size=square_hd" alt="Saco de ração para cachorro">
-                        <span class="shelf-badge">alimenta</span>
+                        <img src="{{ asset('assets/racao.jpg') }}" alt="Doar Ração">
                     </div>
                     <div class="shelf-body">
                         <h3 class="font-display text-2xl font-bold">Ração</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Cada R$20 compra aproximadamente 5kg de ração — o suficiente para vários dias de um cachorro de porte médio.</p>
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar doando ração para nossos patinhas. Qualquer quantidade faz a diferença.</p>
                         <div class="mt-4 flex items-center justify-between">
-                            <p class="text-sm font-bold text-[var(--color-dark)]/85">A partir de R$ 20</p>
+                            <p class="text-sm font-bold text-[var(--color-blue)]">Quero doar Ração</p>
                             <span class="shelf-arrow">→</span>
                         </div>
                     </div>
                 </a>
 
-                <a href="{{ $waLink('Remédio') }}" target="_blank" rel="noopener" class="shelf-card group">
+                <a href="{{ $waLink('Remédios') }}" target="_blank" rel="noopener" class="shelf-card group">
                     <div class="shelf-photo">
-                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=caixas%20de%20remedios%20veterinarios%20comprimidos%20seringa%20antibiotico%20pipeta%20antipulga%20sobre%20mesa%20branca%20clinica%20veterinaria&image_size=square_hd" alt="Medicamentos veterinários">
-                        <span class="shelf-badge shelf-badge-blue">trata</span>
+                        <img src="{{ asset('assets/remedios.jpg') }}" alt="Doar Remédios">
                     </div>
                     <div class="shelf-body">
-                        <h3 class="font-display text-2xl font-bold">Remédio</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Cada R$50 cobre aproximadamente um tratamento — antibiótico, antipulgas ou vermífugo para um animal resgatado.</p>
+                        <h3 class="font-display text-2xl font-bold">Remédios</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar com medicamentos e tratamentos essenciais.</p>
                         <div class="mt-4 flex items-center justify-between">
-                            <p class="text-sm font-bold text-[var(--color-dark)]/85">A partir de R$ 50</p>
+                            <p class="text-sm font-bold text-[var(--color-blue)]">Quero doar Remédios</p>
                             <span class="shelf-arrow">→</span>
                         </div>
                     </div>
                 </a>
 
-                <a href="{{ $waLink('Castração') }}" target="_blank" rel="noopener" class="shelf-card group">
+                <a href="{{ $waLink('Cirurgias') }}" target="_blank" rel="noopener" class="shelf-card group">
                     <div class="shelf-photo">
-                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=clinica%20veterinaria%20sala%20de%20cirurgia%20limpa%20macaco%20mesa%20de%20cirurgia%20esterilizada%20luz%20branca%20equipamentos&image_size=square_hd" alt="Clínica veterinária para castração">
-                        <span class="shelf-badge shelf-badge-purple">previne</span>
+                        <img src="{{ asset('assets/cirurgias.jpg') }}" alt="Apoiar Cirurgias">
                     </div>
                     <div class="shelf-body">
-                        <h3 class="font-display text-2xl font-bold">Castração</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Cada R$100 ajuda a fazer uma castração em clínica parceira — evita crias indesejadas e abandono.</p>
+                        <h3 class="font-display text-2xl font-bold">Cirurgias</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar nos custos de cirurgias, castrações e emergências.</p>
                         <div class="mt-4 flex items-center justify-between">
-                            <p class="text-sm font-bold text-[var(--color-dark)]/85">A partir de R$ 100</p>
+                            <p class="text-sm font-bold text-[var(--color-blue)]">Quero ajudar com Cirurgias</p>
                             <span class="shelf-arrow">→</span>
                         </div>
                     </div>
                 </a>
 
-                <a href="{{ $waLink('Geral') }}" target="_blank" rel="noopener" class="shelf-card group">
+                <a href="{{ $waLink('Ajuda em Dinheiro') }}" target="_blank" rel="noopener" class="shelf-card group">
                     <div class="shelf-photo">
-                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=cachorro%20e%20gato%20feliz%20abrigo%20cobertor%20quente%20coleira%20nova%20tigela%20agua%20fundo%20quente&image_size=square_hd" alt="Cuidados gerais com pets">
-                        <span class="shelf-badge shelf-badge-green">apoia</span>
+                        <img src="{{ asset('assets/dinheiro.jpg') }}" alt="Ajuda em Dinheiro">
                     </div>
                     <div class="shelf-body">
-                        <h3 class="font-display text-2xl font-bold">Geral</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">O valor vai pra onde a urgência chamar naquele dia: cobertor, produto de limpeza, transporte, uma consulta de emergência.</p>
+                        <h3 class="font-display text-2xl font-bold">Ajuda em Dinheiro</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para contribuir com qualquer valor para mantermos o abrigo funcionando.</p>
                         <div class="mt-4 flex items-center justify-between">
-                            <p class="text-sm font-bold text-[var(--color-dark)]/85">Qualquer valor</p>
+                            <p class="text-sm font-bold text-[var(--color-blue)]">Quero doar Dinheiro</p>
                             <span class="shelf-arrow">→</span>
                         </div>
                     </div>
