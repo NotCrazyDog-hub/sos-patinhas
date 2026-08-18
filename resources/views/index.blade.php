@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="4 Patas Associação — Toda vida merece um recomeço. Fale com a gente no WhatsApp e ajude animais resgatados.">
-    <title>4 Patas Associação</title>
-    <link rel="icon" type="image/png" href="{{ asset('assets/logo-4patas-transparent.png') }}">
+    <meta name="description" content="Ajude um 4 Patas — Toda vida merece um recomeço. Fale com a gente no WhatsApp e ajude animais resgatados.">
+    <title>Ajude um 4 Patas</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/favicon-rounded.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/favicon-rounded.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,8 +31,8 @@
 
     <header class="sticky top-0 z-50 w-full bg-[var(--color-bg)]/95 backdrop-blur border-b border-black/5">
         <div class="container-wide flex items-center justify-between h-16 md:h-20">
-            <a href="#inicio" class="flex items-center gap-2.5 shrink-0" aria-label="4 Patas Associação — voltar ao início">
-                <img src="{{ asset('assets/logo-4patas-transparent.png') }}" alt="" class="h-9 md:h-11 w-auto object-contain shrink-0">
+            <a href="#inicio" class="flex items-center gap-2.5 shrink-0" aria-label="Ajude um 4 Patas — voltar ao início">
+                <img src="{{ asset('assets/logo_ajudeum4patas.png') }}" alt="Ajude um 4 Patas" class="h-10 md:h-12 w-auto object-contain shrink-0">
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[var(--color-dark)]/70" aria-label="Navegação principal">
@@ -533,7 +534,7 @@
             <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr] md:gap-16">
                 <div>
                     <a href="#inicio" class="flex items-center gap-3">
-                        <img src="{{ asset('assets/logo-4patas-transparent.png') }}" alt="Ajude um 4 Patas" class="h-12 w-auto object-contain">
+                        <img src="{{ asset('assets/logo_ajudeum4patas.png') }}" alt="Ajude um 4 Patas" class="h-12 md:h-14 w-auto object-contain">
                     </a>
                     <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/55">Resgatamos animais abandonados nas ruas, levamos no veterinário, damos ração todo dia e encontramos família. Precisa de você pra continuar.</p>
 
