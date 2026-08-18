@@ -84,6 +84,17 @@ return [
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Cron Job Security Token
+    |--------------------------------------------------------------------------
+    |
+    | This token is used to authenticate external HTTP requests from services
+    | like cron-job.org. It ensures that only authorized triggers can execute
+    | the scheduled tasks via the web routing layer without timeouts.
+    |
+    */
+    
     'cron_secret' => env('CRON_SECRET'),
 
     /*
