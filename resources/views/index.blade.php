@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SOS Patinhas — Toda vida merece um recomeço. Fale com a gente no WhatsApp e ajude animais resgatados.">
-    <title>SOS Patinhas</title>
-    <link rel="icon" type="image/png" href="{{ asset('assets/logo-sos.png') }}">
+    <meta name="description" content="4 Patas Associação — Toda vida merece um recomeço. Fale com a gente no WhatsApp e ajude animais resgatados.">
+    <title>4 Patas Associação</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/logo-4patas-transparent.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;0,9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-[var(--color-bg)] text-[var(--color-dark)] antialiased selection:bg-[var(--color-red)] selection:text-[var(--color-bg)]">
@@ -18,7 +18,7 @@
         $whatsappNumber = '558898304647';
 
         $whatsappMessages = [
-            'geral'     => 'Olá! Vi o site do SOS Patinhas e quero ajudar.',
+            'geral'     => 'Olá! Vi o site da 4 Patas Associação e quero ajudar.',
             'Ração'     => 'Olá! Quero ajudar com Ração para os patinhas.',
             'Remédio'   => 'Olá! Quero ajudar com Remédio para os patinhas.',
             'Castração' => 'Olá! Quero ajudar com Castração para os patinhas.',
@@ -30,8 +30,8 @@
 
     <header class="sticky top-0 z-50 w-full bg-[var(--color-bg)]/95 backdrop-blur border-b border-black/5">
         <div class="container-wide flex items-center justify-between h-16 md:h-20">
-            <a href="#inicio" class="flex items-center gap-2.5 shrink-0" aria-label="SOS Patinhas — voltar ao início">
-                <img src="{{ asset('assets/logo-sos.png') }}" alt="" class="h-9 md:h-11 w-auto object-contain shrink-0">
+            <a href="#inicio" class="flex items-center gap-2.5 shrink-0" aria-label="4 Patas Associação — voltar ao início">
+                <img src="{{ asset('assets/logo-4patas-transparent.png') }}" alt="" class="h-9 md:h-11 w-auto object-contain shrink-0">
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[var(--color-dark)]/70" aria-label="Navegação principal">
@@ -67,7 +67,7 @@
     <main id="inicio">
 
         {{-- HERO — Scroll Expansion --}}
-        <section class="scroll-hero grain" data-scroll-hero aria-label="Hero SOS Patinhas">
+        <section class="scroll-hero grain" data-scroll-hero aria-label="Hera 4 Patas Associação">
             <div class="scroll-hero-bg">
                 <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="" data-hero-bg>
             </div>
@@ -89,7 +89,7 @@
                         <span class="word-left" data-word-left>Toda vida</span>
                         <span class="word-right" data-word-right>merece um lar.</span>
                     </h1>
-                    <p class="scroll-hero-sub">SOS Patinhas — cuidamos de quem não tem voz</p>
+                    <p class="scroll-hero-sub">4 Patas Associação — cuidamos de quem não tem voz</p>
                 </div>
 
                 <div class="scroll-hero-scrollhint" data-scrollhint>
@@ -101,7 +101,7 @@
             <div class="scroll-hero-content container-wide w-full" data-hero-content>
                 <div class="mx-auto max-w-6xl py-16 md:py-24 grid md:grid-cols-[0.85fr_1.15fr] gap-10 md:gap-16 items-center">
                     <div>
-                        <div class="inline-flex items-center gap-2 rounded-full bg-[var(--color-soft)] px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-red)]">
+                        <div class="inline-flex items-center gap-2 rounded-full bg-[var(--color-soft)] px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue)]">
                             <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-red)] animate-pulse"></span>
                             Resgate ativo hoje
                         </div>
@@ -109,7 +109,7 @@
                             Seu WhatsApp é o primeiro passo de um patinha.
                         </h2>
                         <p class="mt-6 text-base md:text-lg leading-relaxed text-[var(--color-dark)]/70 max-w-md">
-                            A ONG SOS Patinhas cuida de animais abandonados nas ruas. A gente resgata, leva no veterinário, dá ração todo dia e entrega para famílias. Fale com a gente agora — é direto, sem tela intermediária.
+                            A ONG 4 Patas Associação cuida de animais abandonados nas ruas. A gente resgata, leva no veterinário, dá ração todo dia e entrega para famílias. Fale com a gente agora — é direto, sem tela intermediária.
                         </p>
                         <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                             <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="btn-primary justify-center sm:justify-start">
@@ -250,7 +250,7 @@
                     </a>
                 </div>
 
-                <p class="mt-8 text-[10px] leading-relaxed text-[var(--color-dark)]/45 text-center">Fotos reais de animais atendidos pelo SOS Patinhas. Para adoção formal, entre em contato.</p>
+                <p class="mt-8 text-[10px] leading-relaxed text-[var(--color-dark)]/45 text-center">Fotos reais de animais atendidos pela 4 Patas Associação. Para adoção formal, entre em contato.</p>
             </div>
         </section>
 
@@ -339,10 +339,10 @@
         </section>
 
         {{-- TRANSPARÊNCIA — sem valores inventados, só o que realmente acontece --}}
-        <section class="bg-[var(--color-dark)] text-white" id="transparencia" data-reveal>
+        <section class="bg-[var(--color-blue-deep)] text-white" id="transparencia" data-reveal>
             <div class="container-wide section-padding grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
                 <div>
-                    <p class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-red)]">sem volta pra gastar</p>
+                    <p class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-blue)]">sem volta pra gastar</p>
                     <h2 class="font-display mt-4 text-[clamp(2.25rem,5vw,3.75rem)] font-extrabold leading-[0.98] tracking-[-0.06em] max-w-lg">
                         Cada real sai do WhatsApp e entra direto num patinha.
                     </h2>
@@ -351,15 +351,15 @@
                     </p>
                     <ul class="space-y-3 mt-7">
                         <li class="flex items-start gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                            <span class="text-[var(--color-red)] font-extrabold shrink-0">01</span>
+                            <span class="text-[var(--color-blue)] font-extrabold shrink-0">01</span>
                             <p class="font-semibold text-sm">Você fala direto com uma pessoa da ONG, não com chatbot</p>
                         </li>
                         <li class="flex items-start gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                            <span class="text-[var(--color-red)] font-extrabold shrink-0">02</span>
+                            <span class="text-[var(--color-blue)] font-extrabold shrink-0">02</span>
                             <p class="font-semibold text-sm">Se pedir, a gente manda foto do recibo e dos animais recebendo</p>
                         </li>
                         <li class="flex items-start gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                            <span class="text-[var(--color-red)] font-extrabold shrink-0">03</span>
+                            <span class="text-[var(--color-blue)] font-extrabold shrink-0">03</span>
                             <p class="font-semibold text-sm">CNPJ ativo. Se quiser consultar, é só pedir no WhatsApp</p>
                         </li>
                     </ul>
@@ -373,9 +373,9 @@
                     <div class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 sm:p-6 shadow-xl backdrop-blur-sm">
                         <div class="mb-5 flex items-center gap-3">
                             <div class="flex -space-x-2">
-                                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-dark)] object-cover">
-                                <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-dark)] object-cover">
-                                <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-dark)] object-cover">
+                                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-blue-deep)] object-cover">
+                                <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-blue-deep)] object-cover">
+                                <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-blue-deep)] object-cover">
                             </div>
                             <h3 class="font-display text-2xl font-bold">Registro de ajuda real.</h3>
                         </div>
@@ -386,7 +386,7 @@
                                     <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="Distribuição de ração para cachorro">
                                 </div>
                                 <div class="min-w-0 flex-1 py-1">
-                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-red)]">alimentação</p>
+                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-blue)]">alimentação</p>
                                     <h4 class="mt-1 font-bold text-white">Ração comprada com doação</h4>
                                     <p class="mt-2 text-xs leading-relaxed text-white/65">A gente posta a foto da compra nos stories do Instagram. Você vê chegando.</p>
                                 </div>
@@ -397,7 +397,7 @@
                                     <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="Cachorro Thor após tratamento veterinário">
                                 </div>
                                 <div class="min-w-0 flex-1 py-1">
-                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-red)]">saúde</p>
+                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-blue)]">saúde</p>
                                     <h4 class="mt-1 font-bold text-white">Tratamento no veterinário</h4>
                                     <p class="mt-2 text-xs leading-relaxed text-white/65">Clínicas parceiras dão desconto pra ONG. O doador cobriu o resto.</p>
                                 </div>
@@ -408,7 +408,7 @@
                                     <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="Filhotes de cachorro em mutirão de castração">
                                 </div>
                                 <div class="min-w-0 flex-1 py-1">
-                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-red)]">prevenção</p>
+                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-blue)]">prevenção</p>
                                     <h4 class="mt-1 font-bold text-white">Mutirão de castração</h4>
                                     <p class="mt-2 text-xs leading-relaxed text-white/65">Menos crias abandonadas nas ruas. O custo sai 1/3 em clínica parceira.</p>
                                 </div>
@@ -434,7 +434,7 @@
                 <div class="order-2 lg:order-1">
                     <div class="overflow-hidden rounded-[2.5rem] bg-[var(--color-soft)] shadow-lg">
                         <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}"
-                             alt="Voluntária do SOS Patinhas segurando um cachorro no colo"
+                             alt="Voluntária da 4 Patas Associação segurando um cachorro no colo"
                              class="h-[24rem] w-full object-cover sm:h-[30rem]" loading="lazy">
                     </div>
                     <div class="mt-4 flex items-center gap-4">
@@ -448,14 +448,14 @@
                         <p class="text-xs font-bold leading-snug text-[var(--color-dark)]/75">Só alguns dos patinhas atendidos pelo SOS.</p>
                     </div>
                     <div class="mt-4 polaroid-sm" aria-hidden="true">
-                        <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="Filhote do SOS Patinhas">
+                        <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="Filhote da 4 Patas Associação">
                     </div>
                 </div>
                 <div class="order-1 lg:order-2">
                     <p class="eyebrow">por trás das patas</p>
                     <h2 class="section-title mt-4">Quem cuida dos animais são pessoas de verdade. Nós mesmas.</h2>
                     <p class="mt-5 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
-                        O SOS Patinhas começou com um grupo pequeno: quem já parava o carro pra tirar cachorro da rua, quem levava gato ferido no veterinário com dinheiro do próprio bolso.
+                        A 4 Patas Associação começou com um grupo pequeno: quem já parava o carro pra tirar cachorro da rua, quem levava gato ferido no veterinário com dinheiro do próprio bolso.
                     </p>
                     <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
                         Hoje a gente faz isso junto. Tem voluntário que vai buscar animal na rua de moto, tem clínica parceira que cobra mais barato, tem quem ajuda com R$20 de ração todo mês.
@@ -463,7 +463,7 @@
                     <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
                         Não tem equipe grande, não tem orçamento milionário. Tem gente que aparece todo dia.
                     </p>
-                    <div class="mt-8 grid grid-cols-2 gap-4 border-t border-[var(--color-dark)]/12 pt-6">
+                    <div class="mt-8 grid grid-cols-2 gap-4 border-t border-[var(--color-blue-deep)]/12 pt-6">
                         <div>
                             <p class="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[var(--color-dark)]/50">desde</p>
                             <p class="mt-1 font-display text-2xl font-extrabold">2020</p>
@@ -473,21 +473,21 @@
                             <p class="mt-1 font-display text-2xl font-extrabold">Brasil</p>
                         </div>
                     </div>
-                    <p class="mt-7 text-xs font-semibold text-[var(--color-dark)]/70"><span class="text-[var(--color-red)]">CNPJ:</span> pedir o número no WhatsApp</p>
+                    <p class="mt-7 text-xs font-semibold text-[var(--color-dark)]/70"><span class="text-[var(--color-blue)]">CNPJ:</span> pedir o número no WhatsApp</p>
                 </div>
             </div>
         </section>
 
         {{-- CTA FINAL — com foto de fundo real, mais imersivo --}}
-        <section class="relative overflow-hidden grain" id="doar" data-reveal>
-            <div class="absolute inset-0 bg-[var(--color-red)]"></div>
+        <section class="relative overflow-hidden grain" \n<div class="absolute -top-10 left-10 w-24 h-24 bg-gradient-to-tr from-[#006DFE] to-[#0250A5] rounded-[50%] shadow-[4px_4px_10px_rgba(0,0,0,0.3)] rotate-12 opacity-80 z-0 pointer-events-none" style="border-radius: 50% 50% 0 50%"></div> id="doar" data-reveal>
+            <div class="absolute inset-0 bg-[var(--color-blue)]"></div>
             <div class="cta-final-bg absolute inset-0">
                 <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="">
             </div>
             <div class="cta-final-overlay absolute inset-0"></div>
             <div class="container-wide relative flex max-w-4xl flex-col items-center py-20 md:py-28 text-center">
-                <div class="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-white border border-white/20">
-                    🐾 Resgate ativo hoje
+                <div class="inline-flex items-center gap-2 rounded-full bg-[var(--color-yellow)] px-4 py-2 text-[12px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue-deep)] border-4 border-white shadow-[3px_3px_0px_white]">
+                    <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 8c1.66 0 3-1.34 3-3S13.66 2 12 2s-3 1.34-3 3 1.34 3 3 3zm-5.5-1c-1.38 0-2.5 1.12-2.5 2.5S5.12 12 6.5 12 9 10.88 9 9.5 7.88 7 6.5 7zm11 0c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5S20 10.88 20 9.5 18.88 7 17.5 7zM12 10c-2.76 0-5 2.24-5 5s2.24 7 5 7 5-3.13 5-7-2.24-5-5-5z"/></svg> Resgate ativo hoje
                 </div>
                 <h2 class="mt-5 max-w-2xl font-display text-4xl sm:text-6xl font-extrabold leading-[0.97] tracking-[-0.06em] text-white">
                     Seu WhatsApp agora é<br>
@@ -505,14 +505,14 @@
                     </a>
                 </div>
                 <div class="mt-10 flex -space-x-2 md:-space-x-3" aria-hidden="true">
-                    <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-red)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
+                    <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
                 </div>
                 <p class="mt-3 text-xs font-semibold text-white/75">8 patinhas que já tiveram ajuda chegando.</p>
             </div>
@@ -520,7 +520,7 @@
 
     </main>
 
-    <footer class="bg-[var(--color-dark)] text-white pt-16 pb-28 md:pb-16">
+    <footer class="bg-[var(--color-blue-deep)] text-white pt-16 pb-28 md:pb-16">
         <div class="container-wide">
             <div class="mb-12 footer-pet-strip" aria-hidden="true">
                 <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
@@ -537,7 +537,7 @@
             <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr] md:gap-16">
                 <div>
                     <a href="#inicio" class="flex items-center gap-3">
-                        <img src="{{ asset('assets/Logo_SOSPatinhas.png') }}" alt="SOS Patinhas" class="h-12 w-auto object-contain">
+                        <img src="{{ asset('assets/logo-4patas-transparent.png') }}" alt="Ajude um 4 Patas" class="h-12 w-auto object-contain">
                     </a>
                     <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/55">Resgatamos animais abandonados nas ruas, levamos no veterinário, damos ração todo dia e encontramos família. Precisa de você pra continuar.</p>
 
@@ -557,7 +557,7 @@
                 </div>
 
                 <div>
-                    <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-red)]">navegue</p>
+                    <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue)]">navegue</p>
                     <div class="mt-5 space-y-3 text-sm text-white/65">
                         <a href="#como-funciona" class="block hover:text-white">Como funciona</a>
                         <a href="#patinhas" class="block hover:text-white">Nossos patinhas</a>
@@ -568,7 +568,7 @@
                 </div>
 
                 <div>
-                    <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-red)]">fale com a gente</p>
+                    <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue)]">fale com a gente</p>
                     <div class="mt-5 space-y-3 text-sm text-white/65">
                         <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="block hover:text-white">WhatsApp direto</a>
                         <a href="mailto:contato@sospatinhas.org" class="block hover:text-white">contato@sospatinhas.org</a>
@@ -578,8 +578,8 @@
             </div>
 
             <div class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[10px] text-white/35">
-                <p>© {{ date('Y') }} SOS Patinhas. Feito por quem cuida.</p>
-                <p>Fotos reais do acervo SOS Patinhas.</p>
+                <p>© {{ date('Y') }} 4 Patas Associação. Feito por quem cuida.</p>
+                <p>Fotos reais do acerva 4 Patas Associação.</p>
             </div>
         </div>
     </footer>
