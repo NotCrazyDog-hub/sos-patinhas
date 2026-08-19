@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ajude um 4 Patas — Toda vida merece um recomeço. Fale com a gente no WhatsApp e ajude animais resgatados.">
+    <meta name="description"
+        content="Ajude um 4 Patas — Toda vida merece um recomeço. Doação direta pelo WhatsApp para ajudar animais resgatados.">
     <title>Ajude um 4 Patas</title>
     <link rel="icon" type="image/png" href="{{ asset('assets/favicon-rounded.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('assets/favicon-rounded.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-[var(--color-bg)] text-[var(--color-dark)] antialiased selection:bg-[var(--color-red)] selection:text-[var(--color-bg)]">
+
+<body
+    class="bg-[var(--color-bg)] text-[var(--color-dark)] antialiased selection:bg-[var(--color-blue)] selection:text-white">
 
     @php
-        // TODO: substituir pelo número real da ONG (formato internacional, só dígitos: 55 + DDD + número)
         $whatsappNumber = '558898304647';
 
         $whatsappMessages = [
-            'geral'     => 'Olá! Vi o site da 4 Patas Associação e quero ajudar.',
-            'Ração'     => 'Olá! Quero ajudar com Ração para os patinhas.',
-            'Remédios'  => 'Olá! Quero ajudar com Remédios para os patinhas.',
+            'geral' => 'Olá! Vi o site do Ajude um 4 Patas e quero ajudar.',
+            'Ração' => 'Olá! Quero ajudar com Ração para os patinhas.',
+            'Remédios' => 'Olá! Quero ajudar com Remédios para os patinhas.',
             'Cirurgias' => 'Olá! Quero ajudar com Cirurgias para os patinhas.',
             'Ajuda em Dinheiro' => 'Olá! Quero ajudar com uma doação em Dinheiro.',
         ];
 
-        $waLink = fn (string $key = 'geral') => 'https://wa.me/' . $whatsappNumber . '?text=' . urlencode($whatsappMessages[$key]);
+        $waLink = fn(string $key = 'geral') => 'https://wa.me/' . $whatsappNumber . '?text=' . urlencode($whatsappMessages[$key]);
     @endphp
 
     <header class="sticky top-0 z-50 w-full bg-[var(--color-bg)]/95 backdrop-blur border-b border-black/5">
         <div class="container-wide flex items-center justify-between h-16 md:h-20">
-            <a href="#inicio" class="flex items-center gap-2.5 shrink-0" aria-label="Ajude um 4 Patas — voltar ao início">
-                <img src="{{ asset('assets/logo_ajudeum4patas.png') }}" alt="Ajude um 4 Patas" class="h-10 md:h-12 w-auto object-contain shrink-0">
+            <a href="#inicio" class="flex items-center gap-2.5 shrink-0"
+                aria-label="Ajude um 4 Patas — voltar ao início">
+                <img src="{{ asset('assets/logo_ajudeum4patas.png') }}" alt="Ajude um 4 Patas"
+                    class="h-10 md:h-12 w-auto object-contain shrink-0">
             </a>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[var(--color-dark)]/70" aria-label="Navegação principal">
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[var(--color-dark)]/70"
+                aria-label="Navegação principal">
                 <a href="#como-funciona" class="hover:text-[var(--color-dark)] transition-colors">Como funciona</a>
                 <a href="#patinhas" class="hover:text-[var(--color-dark)] transition-colors">Nossos patinhas</a>
                 <a href="#onde-chega" class="hover:text-[var(--color-dark)] transition-colors">Categorias</a>
@@ -44,23 +52,43 @@
             </nav>
 
             <div class="flex items-center gap-3">
-                <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="hidden rounded-full bg-[var(--color-red)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--color-red-dark)] sm:inline-flex">
+                <a href="{{ $waLink() }}" target="_blank" rel="noopener"
+                    class="hidden rounded-full bg-[var(--color-blue)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--color-blue-dark)] sm:inline-flex items-center gap-2 shadow-[2px_2px_0px_#013F7A]">
+                    <x-doodle name="paw-dog" class="w-4 h-4 text-white" />
                     Doar agora
                 </a>
-                <button type="button" class="inline-flex sm:hidden items-center justify-center h-10 w-10 rounded-xl border border-black/10 text-[var(--color-dark)]" data-toggle-menu aria-label="Abrir menu">
-                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <button type="button"
+                    class="inline-flex sm:hidden items-center justify-center h-10 w-10 rounded-xl border border-black/10 text-[var(--color-dark)]"
+                    data-toggle-menu aria-label="Abrir menu">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
                 </button>
             </div>
         </div>
 
         <div data-mobile-menu class="hidden md:hidden border-t border-black/5 bg-[var(--color-bg)]">
             <div class="container-wide py-4 flex flex-col gap-3">
-                <a href="#como-funciona" class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Como funciona</a>
-                <a href="#patinhas" class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Nossos patinhas</a>
-                <a href="#onde-chega" class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Categorias</a>
-                <a href="#transparencia" class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Transparência</a>
-                <a href="#sobre" class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Sobre</a>
-                <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="mt-1 w-full text-center rounded-full bg-[var(--color-red)] px-5 py-3.5 text-sm font-bold text-white">Doar agora</a>
+                <a href="#como-funciona"
+                    class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Como
+                    funciona</a>
+                <a href="#patinhas"
+                    class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Nossos
+                    patinhas</a>
+                <a href="#onde-chega"
+                    class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Categorias</a>
+                <a href="#transparencia"
+                    class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Transparência</a>
+                <a href="#sobre"
+                    class="px-3 py-2 rounded-xl font-semibold text-[var(--color-dark)]/75 hover:bg-black/5">Sobre</a>
+                <a href="{{ $waLink() }}" target="_blank" rel="noopener"
+                    class="mt-1 w-full text-center rounded-full bg-[var(--color-blue)] px-5 py-3.5 text-sm font-bold text-white flex items-center justify-center gap-2">
+                    <x-doodle name="paw-dog" class="w-4 h-4 text-white" />
+                    Doar agora
+                </a>
             </div>
         </div>
     </header>
@@ -68,18 +96,22 @@
     <main id="inicio">
 
         {{-- HERO — Scroll Expansion --}}
-        <section class="scroll-hero grain" data-scroll-hero aria-label="Hera 4 Patas Associação">
-            <div class="scroll-hero-bg">
-                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="" data-hero-bg>
+        <section class="scroll-hero grain" data-scroll-hero aria-label="Hero Ajude um 4 Patas">
+            <div class="scroll-hero-bg overflow-hidden bg-[var(--color-dark)]">
+                <div data-hero-bg class="w-full h-full absolute inset-0">
+                    <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}"
+                        alt="Resgate e cuidado animal" class="w-full h-full object-cover image-rendering-crisp"
+                        style="transform: scale(1.6); object-position: 15% 90%;">
+                </div>
             </div>
 
             <div class="scroll-hero-inner">
                 <div class="scroll-hero-media-wrap" data-hero-media-wrap>
                     <div class="scroll-hero-media">
-                        <video
-                            src="{{ asset('assets/SaveClip.webm') }}"
+                        <video src="{{ asset('assets/SaveClip.webm') }}"
                             poster="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}"
-                            autoplay muted loop playsinline preload="auto" disablePictureInPicture>
+                            class="w-full h-full object-cover object-center" autoplay muted loop playsinline
+                            preload="auto" disablePictureInPicture>
                         </video>
                     </div>
                     <div class="scroll-hero-media-overlay" data-hero-overlay></div>
@@ -90,7 +122,7 @@
                         <span class="word-left" data-word-left>Toda vida</span>
                         <span class="word-right" data-word-right>merece um lar.</span>
                     </h1>
-                    <p class="scroll-hero-sub">4 Patas Associação — cuidamos de quem não tem voz</p>
+                    <p class="scroll-hero-sub">Ajude um 4 Patas — cuidamos de quem não tem voz</p>
                 </div>
 
                 <div class="scroll-hero-scrollhint" data-scrollhint>
@@ -100,190 +132,281 @@
             </div>
 
             <div class="scroll-hero-content container-wide w-full" data-hero-content>
-                <div class="mx-auto max-w-6xl py-16 md:py-24 grid md:grid-cols-[0.85fr_1.15fr] gap-10 md:gap-16 items-center">
-                    <div>
-                        <div class="inline-flex items-center gap-2 rounded-full bg-[var(--color-soft)] px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue)]">
-                            <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-red)] animate-pulse"></span>
+                <div
+                    class="mx-auto max-w-6xl py-16 md:py-24 grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-center">
+                    <div class="relative">
+                        <div class="absolute -top-10 -left-6 opacity-15 pointer-events-none hidden sm:block">
+                            <x-doodle name="sparkle" class="w-16 h-16 text-[var(--color-yellow)]" />
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2 rounded-full bg-[var(--color-yellow)]/20 px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue-deep)] border border-[var(--color-yellow)]/40">
+                            <span
+                                class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-blue)] animate-pulse"></span>
                             Resgate ativo hoje
                         </div>
-                        <h2 class="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-extrabold leading-[0.98] tracking-[-0.06em] mt-5">
+                        <h2
+                            class="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-extrabold leading-[0.98] tracking-[-0.06em] mt-5">
                             Seu WhatsApp é o primeiro passo de um patinha.
                         </h2>
                         <p class="mt-6 text-base md:text-lg leading-relaxed text-[var(--color-dark)]/70 max-w-md">
-                            A ONG 4 Patas Associação cuida de animais abandonados nas ruas. A gente resgata, leva no veterinário, dá ração todo dia e entrega para famílias. Fale com a gente agora — é direto, sem tela intermediária.
+                            O Ajude um 4 Patas cuida de animais abandonados nas ruas. A gente resgata, leva no
+                            veterinário, dá ração todo dia e entrega para famílias. Fale com a gente agora — é direto,
+                            sem tela intermediária.
                         </p>
                         <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                            <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="btn-primary justify-center sm:justify-start">
+                            <a href="{{ $waLink() }}" target="_blank" rel="noopener"
+                                class="btn-primary justify-center sm:justify-start gap-2">
+                                <x-doodle name="paw-dog" class="w-4 h-4 text-white" />
                                 Doar agora
                             </a>
-                            <a href="#patinhas" class="inline-flex items-center justify-center gap-2 px-3 py-3 text-sm font-bold text-[var(--color-dark)]/70 hover:text-[var(--color-dark)] transition">
+                            <a href="#patinhas"
+                                class="inline-flex items-center justify-center gap-2 px-3 py-3 text-sm font-bold text-[var(--color-dark)]/70 hover:text-[var(--color-dark)] transition">
                                 Ver patinhas atendidos
-                                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
+                                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14" />
+                                    <path d="M19 12l-7 7-7-7" />
+                                </svg>
                             </a>
                         </div>
-
-                        <div class="mt-8 flex items-center gap-5">
-                            <div class="flex -space-x-2">
-                                <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="" class="avatar !h-10 !w-10 !border-white object-cover">
-                                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="" class="avatar !h-10 !w-10 !border-white object-cover">
-                                <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="" class="avatar !h-10 !w-10 !border-white object-cover">
-                            </div>
-                            <p class="text-xs font-semibold leading-snug text-[var(--color-dark)]/70 max-w-[10rem]">Fotos reais dos animais que passaram pelo SOS.</p>
-                        </div>
                     </div>
 
-                    <div class="photo-row !grid-cols-1 sm:!grid-cols-2 md:!grid-cols-2 md:gap-6">
-                        <div class="photo-card photo-card-tilt-l">
-                            <span class="pc-tag">Resgate</span>
-                            <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="Cachorro resgatado olhando para a câmera">
-                            <div class="pc-body">
-                                <h4>Thor</h4>
-                                <p>Resgatado das ruas. Terminou tratamento e está pronto para adoção.</p>
-                            </div>
+                    {{-- Galeria de fotos reais dos animais (limpa, sem textos sobrepostos) --}}
+                    <div class="grid grid-cols-2 gap-3.5 sm:gap-4">
+                        <div class="photo-card aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md">
+                            <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}"
+                                alt="Cachorro resgatado" class="w-full h-full object-cover">
                         </div>
-                        <div class="photo-card photo-card-tilt-r mt-0 sm:mt-12">
-                            <span class="pc-tag">Adoção</span>
-                            <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="Gato carinhoso sendo acariciado">
-                            <div class="pc-body">
-                                <h4>Mia</h4>
-                                <p>Adotada. Hoje dorme no sofá e tem família própria.</p>
-                            </div>
+                        <div class="photo-card aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md sm:mt-6">
+                            <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}"
+                                alt="Gato recebendo carinho" class="w-full h-full object-cover">
+                        </div>
+                        <div class="photo-card aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md -mt-2 sm:mt-0">
+                            <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}"
+                                alt="Cachorro resgatado feliz" class="w-full h-full object-cover">
+                        </div>
+                        <div class="photo-card aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md sm:mt-6">
+                            <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}"
+                                alt="Gatinho resgatado" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        {{-- Seção "Números de impacto" removida: os valores eram ilustrativos/fabricados.
-             Reintroduzir apenas quando houver métricas reais da ONG para exibir. --}}
+        {{-- COMO FUNCIONA — LINHA DO TEMPO --}}
+        <section class="container-wide section-padding relative" id="como-funciona" data-reveal>
+            <div class="absolute right-10 top-16 opacity-10 pointer-events-none hidden md:block">
+                <x-doodle name="swirl" class="w-24 h-24 text-[var(--color-blue)]" />
+            </div>
 
-        {{-- COMO FUNCIONA --}}
-        <section class="container-wide section-padding" id="como-funciona" data-reveal>
-            <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 items-start">
-                <div>
-                    <p class="eyebrow">passo a passo real</p>
-                    <h2 class="section-title mt-4">Doação direta no WhatsApp.</h2>
-                    <p class="mt-5 max-w-sm text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
-                        Sem plataforma no meio, sem formulário de 5 campos. Você fala com quem realmente cuida dos animais.
-                    </p>
-                    <div class="mt-8 pet-row-simple" aria-hidden="true">
-                        <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
-                        <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
-                        <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="">
-                        <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="">
-                        <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="">
-                        <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="">
-                    </div>
-                    <p class="mt-3 text-xs font-bold text-[var(--color-dark)]/70">6 patinhas atendidos esse mês.</p>
+            <div class="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+                <div class="inline-flex items-center gap-2 mb-3">
+                    <x-doodle name="paw-dog" class="w-4 h-4 text-[var(--color-yellow)]" />
+                    <p class="eyebrow !text-[var(--color-blue-deep)]">passo a passo real</p>
+                    <x-doodle name="paw-cat" class="w-4 h-4 text-[var(--color-yellow)]" />
                 </div>
-                <div class="grid gap-4 sm:grid-cols-3">
-                    <article class="step-card">
-                        <span class="step-number">01</span>
-                        <div class="step-photo">
-                            <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=saco%20de%20racao%20para%20cachorro%20aberto%20com%20comida%20caindo%20em%20tigela%20plastica%20azul%20sobre%20mesa%20de%20madeira%20rustica%20fundo%20claro&image_size=square" alt="Ração para cachorro">
+                <h2 class="section-title mx-auto text-center">Doação direta no WhatsApp.</h2>
+                <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
+                    Sem plataforma no meio, sem burocracia ou taxas intermediárias. Você fala com quem realmente cuida e
+                    resgata os animais todo dia.
+                </p>
+            </div>
+
+            {{-- Linha do tempo horizontal no desktop / vertical no mobile --}}
+            <div class="relative timeline-wrap max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 relative z-10">
+                    {{-- Passo 1 --}}
+                    <article
+                        class="timeline-step-card flex flex-col items-center md:items-start text-center md:text-left bg-white p-6 md:p-8 rounded-[2rem] border-2 border-[var(--color-yellow)]/30 shadow-sm relative group hover:border-[var(--color-yellow)] transition-all">
+                        <div class="flex items-center justify-between w-full mb-6">
+                            <div class="timeline-step-icon">
+                                <x-doodle name="paw-dog" class="w-8 h-8" />
+                            </div>
+                            <span
+                                class="text-xs font-black px-3 py-1 rounded-full bg-[var(--color-yellow)]/20 text-[var(--color-blue-dark)]">Etapa
+                                01</span>
                         </div>
-                        <h3 class="font-display text-xl font-bold mt-4">Escolha o item</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/65">Ração, remédio, castração ou ajuda geral — você decide onde sua doação entra.</p>
+                        <h3 class="font-display text-2xl font-bold">Escolha o item</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-[var(--color-dark)]/70">
+                            Ração, remédio, cirurgias ou ajuda em dinheiro — você decide exatamente onde sua doação
+                            entra.
+                        </p>
                     </article>
-                    <article class="step-card md:-mt-4">
-                        <span class="step-number">02</span>
-                        <div class="step-photo">
-                            <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=celular%20na%20mao%20mostrando%20conversa%20no%20whatsapp%20tela%20verde%20mensagens%20de%20texto&image_size=square" alt="WhatsApp no celular">
+
+                    {{-- Passo 2 --}}
+                    <article
+                        class="timeline-step-card flex flex-col items-center md:items-start text-center md:text-left bg-white p-6 md:p-8 rounded-[2rem] border-2 border-[var(--color-yellow)]/30 shadow-sm relative group hover:border-[var(--color-yellow)] transition-all">
+                        <div class="flex items-center justify-between w-full mb-6">
+                            <div class="timeline-step-icon">
+                                <x-doodle name="chat-wa" class="w-8 h-8" />
+                            </div>
+                            <span
+                                class="text-xs font-black px-3 py-1 rounded-full bg-[var(--color-yellow)]/20 text-[var(--color-blue-dark)]">Etapa
+                                02</span>
                         </div>
-                        <h3 class="font-display text-xl font-bold mt-4">Chama no WhatsApp</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/65">Combina o valor, confirma a categoria e tira qualquer dúvida com a gente.</p>
+                        <h3 class="font-display text-2xl font-bold">Chama no WhatsApp</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-[var(--color-dark)]/70">
+                            Combina o valor, tira dúvidas e fala direto com os voluntários que estão no resgate diário.
+                        </p>
                     </article>
-                    <article class="step-card">
-                        <span class="step-number">03</span>
-                        <div class="step-photo">
-                            <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=grupo%20de%20cachorros%20e%20gatos%20felizes%20comendo%20racao%20em%20abrigo%20de%20animais%20luz%20natural%20quente&image_size=square" alt="Animais comendo no abrigo">
+
+                    {{-- Passo 3 --}}
+                    <article
+                        class="timeline-step-card flex flex-col items-center md:items-start text-center md:text-left bg-white p-6 md:p-8 rounded-[2rem] border-2 border-[var(--color-yellow)]/30 shadow-sm relative group hover:border-[var(--color-yellow)] transition-all">
+                        <div class="flex items-center justify-between w-full mb-6">
+                            <div class="timeline-step-icon">
+                                <x-doodle name="heart-box" class="w-8 h-8" />
+                            </div>
+                            <span
+                                class="text-xs font-black px-3 py-1 rounded-full bg-[var(--color-yellow)]/20 text-[var(--color-blue-dark)]">Etapa
+                                03</span>
                         </div>
-                        <h3 class="font-display text-xl font-bold mt-4">Acompanha a entrega</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/65">A gente manda foto do que foi comprado e dos patinhas recebendo.</p>
+                        <h3 class="font-display text-2xl font-bold">Acompanha a entrega</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-[var(--color-dark)]/70">
+                            A gente envia fotos e vídeos do que foi comprado e dos patinhas recebendo todo o cuidado.
+                        </p>
                     </article>
                 </div>
             </div>
         </section>
 
-        {{-- GALERIA — NOSSOS PATINHAS --}}
-        <section class="bg-[var(--color-soft)]/40" id="patinhas" data-reveal>
-            <div class="container-wide section-padding">
-                <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        {{-- GALERIA — NOSSOS PATINHAS (Bento Grid com toques em amarelo e selos doodle) --}}
+        <section class="bg-[#FFFDF5] border-y border-[var(--color-yellow)]/25" id="patinhas" data-reveal>
+            <div class="container-wide section-padding relative">
+                <div class="absolute left-8 top-12 opacity-12 pointer-events-none hidden md:block">
+                    <x-doodle name="bone" class="w-20 h-20 text-[var(--color-yellow)]" />
+                </div>
+
+                <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end mb-10">
                     <div>
-                        <p class="eyebrow">quem cuida, conhece</p>
-                        <h2 class="section-title mt-4 max-w-lg">Nossos patinhas.</h2>
+                        <div class="inline-flex items-center gap-2">
+                            <x-doodle name="sparkle" class="w-4 h-4 text-[var(--color-yellow)]" />
+                            <p class="eyebrow !text-[var(--color-blue-deep)]">quem cuida, conhece</p>
+                        </div>
+                        <h2 class="section-title mt-2 max-w-lg">Nossos patinhas.</h2>
                     </div>
-                    <p class="max-w-xs text-sm leading-relaxed text-[var(--color-dark)]/65 sm:text-right">Esses são alguns dos animais que passaram ou estão no nosso cuidado. Cada rosto é uma história.</p>
+                    <p class="max-w-xs text-sm leading-relaxed text-[var(--color-dark)]/65 sm:text-right">
+                        Esses são alguns dos animais que passaram ou estão sob nossos cuidados. Cada olhar carrega uma
+                        história de superação.
+                    </p>
                 </div>
 
-                <div class="mt-10 gallery-grid">
-                    <a class="gallery-item gi-a" href="#">
-                        <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="Cachorro dourado de língua pra fora">
-                        <span class="gi-caption">Biscoito — 3 anos · procura lar</span>
-                    </a>
-                    <a class="gallery-item gi-b" href="#">
-                        <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="Filhote de cachorro olhando para cima">
-                        <span class="gi-caption">Filhotes · ninhada de 4</span>
-                    </a>
-                    <a class="gallery-item gi-c" href="#">
-                        <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="Cachorro com colete salva-vidas">
-                        <span class="gi-caption">Thor · tratamento em andamento</span>
-                    </a>
-                    <a class="gallery-item gi-d" href="#">
-                        <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="Gato olhando para câmera">
-                        <span class="gi-caption">Mel</span>
-                    </a>
-                    <a class="gallery-item gi-e" href="#">
-                        <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="Gato cinzento deitado">
-                        <span class="gi-caption">Nina · adotada</span>
-                    </a>
-                    <a class="gallery-item gi-f" href="#">
-                        <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="Cachorro na grama ao entardecer">
-                        <span class="gi-caption">Passeio diário · manhã ensolarada</span>
-                    </a>
-                    <a class="gallery-item gi-g" href="#">
-                        <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="Voluntária segurando dois cachorros">
-                        <span class="gi-caption">Dia de visita ao abrigo</span>
-                    </a>
-                    <a class="gallery-item gi-h" href="#">
-                        <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="Gato recebendo carinho">
-                        <span class="gi-caption">Mia · 2 anos · adotada</span>
-                    </a>
+                {{-- Bento Grid Perfeito & Alinhado --}}
+                <div class="bento-gallery">
+                    {{-- Item 1 --}}
+                    <div class="bento-item aspect-[4/5] sm:aspect-square">
+                        <div class="bento-stamp" title="Cachorro">
+                            <x-doodle name="paw-dog" class="w-5 h-5 text-[var(--color-dark)]" />
+                        </div>
+                        <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}"
+                            alt="Cachorro atendido" loading="lazy">
+                        <div class="bento-caption">Biscoito · Resgatado</div>
+                    </div>
+
+                    {{-- Item 2 --}}
+                    <div class="bento-item aspect-[4/5] sm:aspect-square">
+                        <div class="bento-stamp" title="Filhotes">
+                            <x-doodle name="collar" class="w-5 h-5 text-[var(--color-dark)]" />
+                        </div>
+                        <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}"
+                            alt="Filhotes resgatados" loading="lazy">
+                        <div class="bento-caption">Ninhada de filhotes</div>
+                    </div>
+
+                    {{-- Item 3 --}}
+                    <div class="bento-item aspect-[4/5] sm:aspect-square">
+                        <div class="bento-stamp" title="Gato">
+                            <x-doodle name="paw-cat" class="w-5 h-5 text-[var(--color-dark)]" />
+                        </div>
+                        <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}"
+                            alt="Gato acolhido" loading="lazy">
+                        <div class="bento-caption">Mel · Em lar temporário</div>
+                    </div>
+
+                    {{-- Item 4 --}}
+                    <div class="bento-item aspect-[4/5] sm:aspect-square">
+                        <div class="bento-stamp" title="Gato">
+                            <x-doodle name="fish-bone" class="w-5 h-5 text-[var(--color-dark)]" />
+                        </div>
+                        <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}"
+                            alt="Gato em recuperação" loading="lazy">
+                        <div class="bento-caption">Nina · Adotada</div>
+                    </div>
+
+                    {{-- Item 5 --}}
+                    <div class="bento-item aspect-[4/5] sm:aspect-square">
+                        <div class="bento-stamp" title="Cachorro">
+                            <x-doodle name="bone" class="w-5 h-5 text-[var(--color-dark)]" />
+                        </div>
+                        <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}"
+                            alt="Cachorro passeando" loading="lazy">
+                        <div class="bento-caption">Thor · Recuperado</div>
+                    </div>
+
+                    {{-- Item 6 --}}
+                    <div class="bento-item aspect-[4/5] sm:aspect-square">
+                        <div class="bento-stamp" title="Resgate">
+                            <x-doodle name="sparkle" class="w-5 h-5 text-[var(--color-dark)]" />
+                        </div>
+                        <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}"
+                            alt="Voluntária com animais resgatados" loading="lazy">
+                        <div class="bento-caption">Dia de carinho e cuidado</div>
+                    </div>
+
+                    {{-- Item 7 --}}
+                    <div class="bento-item aspect-[4/5] sm:aspect-square">
+                        <div class="bento-stamp" title="Gatinho">
+                            <x-doodle name="paw-cat" class="w-5 h-5 text-[var(--color-dark)]" />
+                        </div>
+                        <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}"
+                            alt="Gato recebendo carinho" loading="lazy">
+                        <div class="bento-caption">Mia · Final feliz</div>
+                    </div>
+
+                    {{-- Item 8 --}}
+                    <div class="bento-item aspect-[4/5] sm:aspect-square">
+                        <div class="bento-stamp" title="Tratamento">
+                            <x-doodle name="paw-dog" class="w-5 h-5 text-[var(--color-dark)]" />
+                        </div>
+                        <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}"
+                            alt="Cachorro em tratamento" loading="lazy">
+                        <div class="bento-caption">Cuidado diário</div>
+                    </div>
                 </div>
 
-                <p class="mt-8 text-[10px] leading-relaxed text-[var(--color-dark)]/45 text-center">Fotos reais de animais atendidos pela 4 Patas Associação. Para adoção formal, entre em contato.</p>
+                <p class="mt-8 text-xs leading-relaxed text-[var(--color-dark)]/50 text-center">
+                    Fotos reais dos animais atendidos pelo Ajude um 4 Patas. Para ajudar ou adotar, fale com a gente no
+                    WhatsApp.
+                </p>
             </div>
         </section>
 
-        {{-- CATEGORIAS — Prateleira de produtos reais --}}
+        {{-- CATEGORIAS — Prateleira de itens diretos --}}
         <section class="container-wide section-padding" id="onde-chega" data-reveal>
             <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
                 <div>
-                    <p class="eyebrow">pra onde vai cada real</p>
-                    <h2 class="section-title mt-4 max-w-xl">Escolha o item que vai chegar até um patinha.</h2>
+                    <div class="inline-flex items-center gap-2">
+                        <x-doodle name="bowl" class="w-4 h-4 text-[var(--color-yellow)]" />
+                        <p class="eyebrow">pra onde vai cada real</p>
+                    </div>
+                    <h2 class="section-title mt-2 max-w-xl">Escolha o item que vai chegar até um patinha.</h2>
                 </div>
-                <p class="max-w-xs text-sm leading-relaxed text-[var(--color-dark)]/65 sm:text-right">Clique em qualquer categoria — abre direto o WhatsApp com a mensagem pronta. É só enviar.</p>
+                <p class="max-w-xs text-sm leading-relaxed text-[var(--color-dark)]/65 sm:text-right">
+                    Clique em qualquer categoria — abre direto o WhatsApp com a mensagem pronta. É só enviar.
+                </p>
             </div>
 
-            <div class="mt-10 pet-banner" aria-hidden="true">
-                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="">
-            </div>
-
-            <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4 category-shelf">
-                <a href="{{ $waLink('Ração') }}" target="_blank" rel="noopener" class="shelf-card group">
+            <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4 category-shelf">
+                <a href="{{ $waLink('Ração') }}" target="_blank" rel="noopener"
+                    class="shelf-card group border-2 border-black/5 hover:border-[var(--color-yellow)]">
                     <div class="shelf-photo">
                         <img src="{{ asset('assets/racao.jpg') }}" alt="Doar Ração">
                     </div>
                     <div class="shelf-body">
                         <h3 class="font-display text-2xl font-bold">Ração</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar doando ração para nossos patinhas. Qualquer quantidade faz a diferença.</p>
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar
+                            doando ração para nossos patinhas. Qualquer quantidade faz a diferença.</p>
                         <div class="mt-4 flex items-center justify-between">
                             <p class="text-sm font-bold text-[var(--color-blue)]">Quero doar Ração</p>
                             <span class="shelf-arrow">→</span>
@@ -291,13 +414,15 @@
                     </div>
                 </a>
 
-                <a href="{{ $waLink('Remédios') }}" target="_blank" rel="noopener" class="shelf-card group">
+                <a href="{{ $waLink('Remédios') }}" target="_blank" rel="noopener"
+                    class="shelf-card group border-2 border-black/5 hover:border-[var(--color-yellow)]">
                     <div class="shelf-photo">
                         <img src="{{ asset('assets/remedios.jpg') }}" alt="Doar Remédios">
                     </div>
                     <div class="shelf-body">
                         <h3 class="font-display text-2xl font-bold">Remédios</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar com medicamentos e tratamentos essenciais.</p>
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar com
+                            medicamentos e tratamentos essenciais.</p>
                         <div class="mt-4 flex items-center justify-between">
                             <p class="text-sm font-bold text-[var(--color-blue)]">Quero doar Remédios</p>
                             <span class="shelf-arrow">→</span>
@@ -305,13 +430,15 @@
                     </div>
                 </a>
 
-                <a href="{{ $waLink('Cirurgias') }}" target="_blank" rel="noopener" class="shelf-card group">
+                <a href="{{ $waLink('Cirurgias') }}" target="_blank" rel="noopener"
+                    class="shelf-card group border-2 border-black/5 hover:border-[var(--color-yellow)]">
                     <div class="shelf-photo">
                         <img src="{{ asset('assets/cirurgias.jpg') }}" alt="Apoiar Cirurgias">
                     </div>
                     <div class="shelf-body">
                         <h3 class="font-display text-2xl font-bold">Cirurgias</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar nos custos de cirurgias, castrações e emergências.</p>
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para ajudar nos
+                            custos de cirurgias, castrações e emergências.</p>
                         <div class="mt-4 flex items-center justify-between">
                             <p class="text-sm font-bold text-[var(--color-blue)]">Quero ajudar com Cirurgias</p>
                             <span class="shelf-arrow">→</span>
@@ -319,13 +446,15 @@
                     </div>
                 </a>
 
-                <a href="{{ $waLink('Ajuda em Dinheiro') }}" target="_blank" rel="noopener" class="shelf-card group">
+                <a href="{{ $waLink('Ajuda em Dinheiro') }}" target="_blank" rel="noopener"
+                    class="shelf-card group border-2 border-black/5 hover:border-[var(--color-yellow)]">
                     <div class="shelf-photo">
                         <img src="{{ asset('assets/dinheiro.jpg') }}" alt="Ajuda em Dinheiro">
                     </div>
                     <div class="shelf-body">
                         <h3 class="font-display text-2xl font-bold">Ajuda em Dinheiro</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para contribuir com qualquer valor para mantermos o abrigo funcionando.</p>
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--color-dark)]/70">Clique aqui para contribuir
+                            com qualquer valor para mantermos o abrigo funcionando.</p>
                         <div class="mt-4 flex items-center justify-between">
                             <p class="text-sm font-bold text-[var(--color-blue)]">Quero doar Dinheiro</p>
                             <span class="shelf-arrow">→</span>
@@ -335,257 +464,217 @@
             </div>
         </section>
 
-        {{-- TRANSPARÊNCIA — sem valores inventados, só o que realmente acontece --}}
-        <section class="bg-[var(--color-blue-deep)] text-white" id="transparencia" data-reveal>
-            <div class="container-wide section-padding grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        {{-- TRANSPARÊNCIA — Grade de fotos reais --}}
+        <section class="bg-[var(--color-blue)] text-white relative overflow-hidden" id="transparencia" data-reveal>
+            <div class="absolute right-6 top-6 opacity-10 pointer-events-none">
+                <svg viewBox="0 0 100 100" fill="currentColor" class="w-32 h-32 text-white">
+                    <path
+                        d="M50 10C25 10 8 26 8 46c0 12 7 22 18 28l-4 16 18-10c3 0 6 1 10 1 25 0 42-16 42-35S75 10 50 10z" />
+                </svg>
+            </div>
+
+            <div
+                class="container-wide section-padding grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 relative z-10">
                 <div>
-                    <p class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-blue)]">sem volta pra gastar</p>
-                    <h2 class="font-display mt-4 text-[clamp(2.25rem,5vw,3.75rem)] font-extrabold leading-[0.98] tracking-[-0.06em] max-w-lg">
+                    <div class="inline-flex items-center gap-2">
+                        <x-doodle name="paw-dog" class="w-4 h-4 text-[var(--color-yellow)]" />
+                        <p class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-yellow)]">sem
+                            volta pra gastar</p>
+                    </div>
+                    <h2
+                        class="font-display mt-3 text-[clamp(2.25rem,5vw,3.75rem)] font-extrabold leading-[0.98] tracking-[-0.06em] max-w-lg">
                         Cada real sai do WhatsApp e entra direto num patinha.
                     </h2>
-                    <p class="mt-5 max-w-sm text-sm md:text-base leading-relaxed text-white/70">
-                        Não tem taxa de plataforma, não tem sistema que desconta. A conversa é direta com quem vai comprar a ração, levar no veterinário ou agendar a castração.
+                    <p class="mt-5 max-w-sm text-sm md:text-base leading-relaxed text-white/80">
+                        Não tem taxa de plataforma, não tem sistema que desconta. A conversa é direta com quem vai
+                        comprar a ração, levar no veterinário ou agendar a castração.
                     </p>
-                    <ul class="space-y-3 mt-7">
-                        <li class="flex items-start gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                            <span class="text-[var(--color-blue)] font-extrabold shrink-0">01</span>
-                            <p class="font-semibold text-sm">Você fala direto com uma pessoa da ONG, não com chatbot</p>
-                        </li>
-                        <li class="flex items-start gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                            <span class="text-[var(--color-blue)] font-extrabold shrink-0">02</span>
-                            <p class="font-semibold text-sm">Se pedir, a gente manda foto do recibo e dos animais recebendo</p>
-                        </li>
-                        <li class="flex items-start gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                            <span class="text-[var(--color-blue)] font-extrabold shrink-0">03</span>
-                            <p class="font-semibold text-sm">CNPJ ativo. Se quiser consultar, é só pedir no WhatsApp</p>
-                        </li>
-                    </ul>
-                    <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-5 py-3.5 text-sm font-bold text-[var(--color-dark)] transition hover:bg-white/90">
-                        Pedir recibo da doação
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
                 </div>
 
-                <div>
-                    <div class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 sm:p-6 shadow-xl backdrop-blur-sm">
-                        <div class="mb-5 flex items-center gap-3">
-                            <div class="flex -space-x-2">
-                                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-blue-deep)] object-cover">
-                                <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-blue-deep)] object-cover">
-                                <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="" class="avatar !h-8 !w-8 !border-[var(--color-blue-deep)] object-cover">
-                            </div>
-                            <h3 class="font-display text-2xl font-bold">Registro de ajuda real.</h3>
+                {{-- Grade de fotos reais estruturada para receber mais fotos futuramente --}}
+                <div
+                    class="rounded-[2.5rem] border border-white/15 bg-white/[0.05] p-5 sm:p-7 shadow-2xl backdrop-blur-sm">
+                    <div class="mb-5 flex items-center justify-between">
+                        <h3 class="font-display text-2xl font-bold">Registro de ajuda real</h3>
+                        <x-doodle name="camera" class="w-6 h-6 text-[var(--color-yellow)]" />
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                        <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow">
+                            <img src="{{ asset('assets/racao.jpg') }}" alt="Ração comprada"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                         </div>
-
-                        <div class="space-y-3">
-                            <article class="transparency-item !bg-white/[0.04]">
-                                <div class="transparency-thumb">
-                                    <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="Distribuição de ração para cachorro">
-                                </div>
-                                <div class="min-w-0 flex-1 py-1">
-                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-blue)]">alimentação</p>
-                                    <h4 class="mt-1 font-bold text-white">Ração comprada com doação</h4>
-                                    <p class="mt-2 text-xs leading-relaxed text-white/65">A gente posta a foto da compra nos stories do Instagram. Você vê chegando.</p>
-                                </div>
-                            </article>
-
-                            <article class="transparency-item !bg-white/[0.04]">
-                                <div class="transparency-thumb">
-                                    <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="Cachorro Thor após tratamento veterinário">
-                                </div>
-                                <div class="min-w-0 flex-1 py-1">
-                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-blue)]">saúde</p>
-                                    <h4 class="mt-1 font-bold text-white">Tratamento no veterinário</h4>
-                                    <p class="mt-2 text-xs leading-relaxed text-white/65">Clínicas parceiras dão desconto pra ONG. O doador cobriu o resto.</p>
-                                </div>
-                            </article>
-
-                            <article class="transparency-item !bg-white/[0.04]">
-                                <div class="transparency-thumb">
-                                    <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="Filhotes de cachorro em mutirão de castração">
-                                </div>
-                                <div class="min-w-0 flex-1 py-1">
-                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--color-blue)]">prevenção</p>
-                                    <h4 class="mt-1 font-bold text-white">Mutirão de castração</h4>
-                                    <p class="mt-2 text-xs leading-relaxed text-white/65">Menos crias abandonadas nas ruas. O custo sai 1/3 em clínica parceira.</p>
-                                </div>
-                            </article>
+                        <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow">
+                            <img src="{{ asset('assets/remedios.jpg') }}" alt="Medicamentos veterinários"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                         </div>
-
-                        <div class="mt-5 pt-5 border-t border-white/10">
-                            <div class="pet-tight-grid" aria-hidden="true">
-                                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
-                                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
-                                <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="">
-                                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="">
-                            </div>
+                        <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow">
+                            <img src="{{ asset('assets/cirurgias.jpg') }}" alt="Procedimento veterinário"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow">
+                            <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}"
+                                alt="Animal recuperado"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow">
+                            <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}"
+                                alt="Filhotes cuidados"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow">
+                            <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}"
+                                alt="Patinha alimentado"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        {{-- SOBRE — texto mais humano, sem jargão "ONG genérica" --}}
-        <section class="container-wide section-padding" id="sobre" data-reveal>
+        {{-- SEÇÃO "POR TRÁS DAS PATAS" --}}
+        <section class="container-wide section-padding relative" id="sobre" data-reveal>
             <div class="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
                 <div class="order-2 lg:order-1">
-                    <div class="overflow-hidden rounded-[2.5rem] bg-[var(--color-soft)] shadow-lg">
+                    <div
+                        class="overflow-hidden rounded-[2.5rem] bg-[var(--color-soft)] shadow-lg border-2 border-[var(--color-yellow)]/30">
                         <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}"
-                             alt="Voluntária da 4 Patas Associação segurando um cachorro no colo"
-                             class="h-[24rem] w-full object-cover sm:h-[30rem]" loading="lazy">
-                    </div>
-                    <div class="mt-4 flex items-center gap-4">
-                        <div class="flex -space-x-2">
-                            <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
-                            <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
-                            <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
-                            <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
-                            <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="" class="avatar !h-9 !w-9 !border-white object-cover">
-                        </div>
-                        <p class="text-xs font-bold leading-snug text-[var(--color-dark)]/75">Só alguns dos patinhas atendidos pelo SOS.</p>
-                    </div>
-                    <div class="mt-4 polaroid-sm" aria-hidden="true">
-                        <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="Filhote da 4 Patas Associação">
+                            alt="Voluntária do Ajude um 4 Patas segurando um cachorro no colo"
+                            class="h-[32rem] w-full object-cover sm:h-[30rem]" loading="lazy">
                     </div>
                 </div>
                 <div class="order-1 lg:order-2">
-                    <p class="eyebrow">por trás das patas</p>
-                    <h2 class="section-title mt-4">Quem cuida dos animais são pessoas de verdade. Nós mesmas.</h2>
-                    <p class="mt-5 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
-                        A 4 Patas Associação começou com um grupo pequeno: quem já parava o carro pra tirar cachorro da rua, quem levava gato ferido no veterinário com dinheiro do próprio bolso.
-                    </p>
-                    <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
-                        Hoje a gente faz isso junto. Tem voluntário que vai buscar animal na rua de moto, tem clínica parceira que cobra mais barato, tem quem ajuda com R$20 de ração todo mês.
-                    </p>
-                    <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
-                        Não tem equipe grande, não tem orçamento milionário. Tem gente que aparece todo dia.
-                    </p>
-                    <div class="mt-8 grid grid-cols-2 gap-4 border-t border-[var(--color-blue-deep)]/12 pt-6">
-                        <div>
-                            <p class="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[var(--color-dark)]/50">desde</p>
-                            <p class="mt-1 font-display text-2xl font-extrabold">2020</p>
-                        </div>
-                        <div>
-                            <p class="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[var(--color-dark)]/50">base</p>
-                            <p class="mt-1 font-display text-2xl font-extrabold">Brasil</p>
-                        </div>
+                    <div class="inline-flex items-center gap-2">
+                        <x-doodle name="dog-head" class="w-5 h-5 text-[var(--color-blue)]" />
+                        <p class="eyebrow">por trás das patas</p>
                     </div>
-                    <p class="mt-7 text-xs font-semibold text-[var(--color-dark)]/70"><span class="text-[var(--color-blue)]">CNPJ:</span> pedir o número no WhatsApp</p>
+                    <h2 class="section-title mt-3">Quem cuida dos animais são pessoas de verdade. Nós mesmas.</h2>
+
+                    <p class="mt-5 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
+                        Existe um cachorro que passou a noite na chuva porque ninguém parou o carro. Um gatinho que
+                        ficou dias sem comer porque ninguém percebeu. E existe gente que, quando percebe, não consegue
+                        seguir em frente sem fazer alguma coisa.
+                    </p>
+                    <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
+                        Foi assim que o Ajude um 4 Patas começou: gente comum que decidiu que alguém precisa fazer algo.
+                        Sem burocracia, sem departamento nenhum. Só pessoas dividindo o que têm: tempo, carro e o
+                        próprio dinheiro do bolso para tirar um animal da rua e dar a ele uma segunda chance.
+                    </p>
+                    <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--color-dark)]/70">
+                        Cada real que chega aqui não passa por intermediário. Ele vira ração no prato, vacina, cirurgia
+                        que salva uma vida. E a gente continua de pé porque tem gente como você que resolve não olhar
+                        pra outro lado.
+                    </p>
                 </div>
             </div>
         </section>
 
-        {{-- CTA FINAL — com foto de fundo real, mais imersivo --}}
-        <section class="relative overflow-hidden grain" \n<div class="absolute -top-10 left-10 w-24 h-24 bg-gradient-to-tr from-[#006DFE] to-[#0250A5] rounded-[50%] shadow-[4px_4px_10px_rgba(0,0,0,0.3)] rotate-12 opacity-80 z-0 pointer-events-none" style="border-radius: 50% 50% 0 50%"></div> id="doar" data-reveal>
+        {{-- CTA FINAL --}}
+        <section class="relative overflow-hidden grain rounded-" id="doar" data-reveal>
             <div class="absolute inset-0 bg-[var(--color-blue)]"></div>
             <div class="cta-final-bg absolute inset-0">
-                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="">
+                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}"
+                    alt="Resgate de animais" class="">
             </div>
             <div class="cta-final-overlay absolute inset-0"></div>
             <div class="container-wide relative flex max-w-4xl flex-col items-center py-20 md:py-28 text-center">
-                <div class="inline-flex items-center gap-2 rounded-full bg-[var(--color-yellow)] px-4 py-2 text-[12px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue-deep)] border-4 border-white shadow-[3px_3px_0px_white]">
-                    <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 8c1.66 0 3-1.34 3-3S13.66 2 12 2s-3 1.34-3 3 1.34 3 3 3zm-5.5-1c-1.38 0-2.5 1.12-2.5 2.5S5.12 12 6.5 12 9 10.88 9 9.5 7.88 7 6.5 7zm11 0c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5S20 10.88 20 9.5 18.88 7 17.5 7zM12 10c-2.76 0-5 2.24-5 5s2.24 7 5 7 5-3.13 5-7-2.24-5-5-5z"/></svg> Resgate ativo hoje
-                </div>
-                <h2 class="mt-5 max-w-2xl font-display text-4xl sm:text-6xl font-extrabold leading-[0.97] tracking-[-0.06em] text-white">
+                <h2
+                    class="mt-5 max-w-2xl font-display text-4xl sm:text-6xl font-extrabold leading-[0.97] tracking-[-0.06em] text-white">
                     Seu WhatsApp agora é<br>
-                    <span class="text-white/85">um dia de comida e cuidado.</span>
+                    <span class="text-white/90">um dia de comida e cuidado.</span>
                 </h2>
                 <p class="mt-6 max-w-md text-sm md:text-lg leading-relaxed text-white/90">
                     Fala com a gente agora. Abre direto na conversa, mensagem já escrita. É só confirmar o valor.
                 </p>
                 <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="btn-ghost">
+                    <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="btn-ghost gap-2">
+                        <x-doodle name="paw-dog" class="w-4 h-4 text-[var(--color-blue)]" />
                         Doar agora
                     </a>
-                    <a href="#patinhas" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 font-semibold text-white transition-all hover:bg-white/10">
+                    <a href="#patinhas"
+                        class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 font-semibold text-white transition-all hover:bg-white/10">
                         Ver mais patinhas
                     </a>
                 </div>
-                <div class="mt-10 flex -space-x-2 md:-space-x-3" aria-hidden="true">
-                    <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
-                    <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="" class="avatar !h-11 w-11 md:!h-14 md:!w-14 !border-white/95 object-cover ring-4 ring-[var(--color-blue)]/40">
-                </div>
-                <p class="mt-3 text-xs font-semibold text-white/75">8 patinhas que já tiveram ajuda chegando.</p>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-[var(--color-blue-deep)] text-white pt-16 pb-28 md:pb-16">
+    {{-- FOOTER REVISADO --}}
+    <footer class="bg-[var(--color-blue)] text-white pt-16 pb-28 md:pb-16">
         <div class="container-wide">
-            <div class="mb-12 footer-pet-strip" aria-hidden="true">
-                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_698816570_18078342296535127_1287753116567343045_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_754189678_18086491277535127_1178632297326255931_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_684116576_18076605164535127_135362235502391194_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_590415081_18061855955535127_1425536272161251488_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_670595116_18075021284535127_962928348066800081_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_670845235_18075085892535127_8664559762131288254_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_670945377_18075086087535127_1863424644309676740_n.jpg') }}" alt="">
-                <img src="{{ asset('assets/SaveClip.App_588833827_18097663504883487_7226068797039694015_n.jpg') }}" alt="">
-            </div>
-            <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr] md:gap-16">
+            <div class="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr] md:gap-16">
                 <div>
                     <a href="#inicio" class="flex items-center gap-3">
-                        <img src="{{ asset('assets/logo_ajudeum4patas.png') }}" alt="Ajude um 4 Patas" class="h-12 md:h-14 w-auto object-contain">
+                        <img src="{{ asset('assets/logo_ajudeum4patas.png') }}" alt="Ajude um 4 Patas"
+                            class="h-16 md:h-14 w-auto object-contain">
                     </a>
-                    <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/55">Resgatamos animais abandonados nas ruas, levamos no veterinário, damos ração todo dia e encontramos família. Precisa de você pra continuar.</p>
+                    <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
+                        Resgatamos animais abandonados nas ruas, levamos no veterinário, damos ração todo dia e
+                        encontramos família. Um coletivo independente de voluntários que precisa de você para continuar.
+                    </p>
 
                     <div class="mt-6 flex gap-3">
-                        <a href="#" aria-label="Instagram" class="h-10 w-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-                            <svg class="h-4 w-4 text-white/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                        <a href="https://www.instagram.com/ajudeum4patas/" target="_blank" rel="noopener"
+                            aria-label="Instagram"
+                            class="h-10 w-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+                            <svg class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                            </svg>
                         </a>
-                        <a href="#" aria-label="Facebook" class="h-10 w-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-                            <svg class="h-4 w-4 text-white/70" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.2.3-2 2-2h2V2.1C16.7 2 15.6 2 14.4 2 11.8 2 10 3.6 10 6.6V10H7v4h3v8h3Z"/></svg>
+                        <a href="{{ $waLink() }}" target="_blank" rel="noopener" aria-label="WhatsApp"
+                            class="h-10 w-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+                            <svg class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8.9 3.8 1.4 5.8 1.4 6.6 0 12-5.4 12-12 0-3.2-1.3-6.3-3.5-8.3ZM12 21.7c-1.9 0-3.8-.5-5.4-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.7-1.5-3.6-1.5-5.5 0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 7 2.8 1.8 1.8 2.9 4.3 2.8 7-.1 5.4-4.5 9.7-9.4 10.1Zm5.4-7.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.3-.6-.6-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.8 2.5 1.1 2.5.8 3 .7.5 0 1.6-.6 1.8-1.2.2-.6.2-1.2.1-1.3-.1-.2-.3-.3-.6-.4Z" />
+                            </svg>
                         </a>
-                        <a href="{{ $waLink() }}" target="_blank" rel="noopener" aria-label="WhatsApp" class="h-10 w-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-                            <svg class="h-4 w-4 text-white/70" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8.9 3.8 1.4 5.8 1.4 6.6 0 12-5.4 12-12 0-3.2-1.3-6.3-3.5-8.3ZM12 21.7c-1.9 0-3.8-.5-5.4-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.7-1.5-3.6-1.5-5.5 0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 7 2.8 1.8 1.8 2.9 4.3 2.8 7-.1 5.4-4.5 9.7-9.4 10.1Zm5.4-7.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.3-.6-.6-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.8 2.5 1.1 2.5.8 3 .7.5 0 1.6-.6 1.8-1.2.2-.6.2-1.2.1-1.3-.1-.2-.3-.3-.6-.4Z"/></svg>
-                        </a>
-                    </div>
-
-                    <p class="mt-5 text-xs text-white/40">CNPJ: pedir no WhatsApp</p>
-                </div>
-
-                <div>
-                    <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue)]">navegue</p>
-                    <div class="mt-5 space-y-3 text-sm text-white/65">
-                        <a href="#como-funciona" class="block hover:text-white">Como funciona</a>
-                        <a href="#patinhas" class="block hover:text-white">Nossos patinhas</a>
-                        <a href="#onde-chega" class="block hover:text-white">Categorias de doação</a>
-                        <a href="#transparencia" class="block hover:text-white">Transparência</a>
-                        <a href="#sobre" class="block hover:text-white">Sobre a ONG</a>
                     </div>
                 </div>
 
                 <div>
-                    <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-blue)]">fale com a gente</p>
-                    <div class="mt-5 space-y-3 text-sm text-white/65">
-                        <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="block hover:text-white">WhatsApp direto</a>
-                        <a href="mailto:contato@sospatinhas.org" class="block hover:text-white">contato@sospatinhas.org</a>
-                        <a href="#" class="block hover:text-white">Política de privacidade</a>
+                    <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-yellow)]">navegue
+                    </p>
+                    <div class="mt-5 space-y-3 text-sm text-white/75">
+                        <a href="#como-funciona" class="block hover:text-white transition-colors">Como funciona</a>
+                        <a href="#patinhas" class="block hover:text-white transition-colors">Nossos patinhas</a>
+                        <a href="#onde-chega" class="block hover:text-white transition-colors">Categorias de doação</a>
+                        <a href="#transparencia" class="block hover:text-white transition-colors">Transparência</a>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-yellow)]">fale
+                        com a gente</p>
+                    <div class="mt-5 space-y-3 text-sm text-white/75">
+                        <a href="{{ $waLink() }}" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 hover:text-white transition-colors font-semibold">
+                            +55 88 9830-4647
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[10px] text-white/35">
-                <p>© {{ date('Y') }} 4 Patas Associação. Feito por quem cuida.</p>
-                <p>Fotos reais do acerva 4 Patas Associação.</p>
+            <div
+                class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/50">
+                <p>© {{ date('Y') }} Ajude um 4 Patas. Feito por quem cuida.</p>
+                <p>Fotos reais dos animais atendidos pelo nosso grupo de voluntários.</p>
             </div>
         </div>
     </footer>
 
     <div class="mobile-sticky-donate">
-        <a href="{{ $waLink() }}" target="_blank" rel="noopener" class="btn-primary w-full py-4 flex items-center justify-center">
+        <a href="{{ $waLink() }}" target="_blank" rel="noopener"
+            class="btn-primary w-full py-4 flex items-center justify-center gap-2">
+            <x-doodle name="paw-dog" class="w-4 h-4 text-white" />
             Doar agora
         </a>
     </div>
 
 </body>
+
 </html>

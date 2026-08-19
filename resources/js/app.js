@@ -105,18 +105,15 @@ mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click
         rafId = window.requestAnimationFrame(render);
     };
 
-    if (reduced) {
-        targetProgress = 1;
-        progress = 1;
-        fullyExpanded = true;
-        render();
-        heroContent?.classList.add('is-visible');
-        return;
-    }
 
     const onWheel = (e) => {
+        let deltaY = e.deltaY;
+        // Normalize deltaMode for Firefox (lines vs pixels)
+        if (e.deltaMode === 1) deltaY *= 33;
+        else if (e.deltaMode === 2) deltaY *= window.innerHeight;
+
         if (fullyExpanded) {
-            if (e.deltaY < 0 && window.scrollY <= 5) {
+            if (deltaY < 0 && window.scrollY <= 5) {
                 fullyExpanded = false;
                 heroContent?.classList.remove('is-visible');
                 targetProgress = clamp(targetProgress - 0.05, 0, 1);
@@ -126,7 +123,7 @@ mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click
             return;
         }
         e.preventDefault();
-        const delta = e.deltaY * 0.001;
+        const delta = deltaY * 0.001;
         targetProgress = clamp(targetProgress + delta, 0, 1);
         schedule();
     };
